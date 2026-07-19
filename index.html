@@ -1,0 +1,1451 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ברק רוזנפלד | תפיסת שירות תעסוקתי דיגיטלי</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--blue-900:#0f1c3f;--blue-800:#1e3a8a;--blue-700:#1d4ed8;--blue-600:#2563eb;--blue-500:#3b82f6;--blue-100:#dbeafe;
+--teal-700:#0d9488;--teal-500:#14b8a6;--teal-300:#5eead4;
+--cyan-500:#06b6d4;--cyan-300:#67e8f9;
+--dark:#0f172a;--dark-2:#1e293b;--dark-3:#334155;
+--gray-700:#374151;--gray-500:#64748b;--gray-300:#cbd5e1;--gray-100:#f1f5f9;
+--white:#ffffff;--bg:#f8fafc;
+--shadow-sm:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
+--shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
+--shadow-xl:0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04);
+--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;--t:.3s ease}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Heebo',-apple-system,sans-serif;background:var(--bg);color:var(--dark);direction:rtl;text-align:right;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-weight:800;line-height:1.2;color:var(--dark)}
+p{color:var(--gray-700);line-height:1.8}
+/* NAV */
+.nav{position:fixed;top:0;right:0;left:0;z-index:1000;background:rgba(15,28,63,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);transition:var(--t)}
+.nav-inner{max-width:1400px;margin:0 auto;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-brand{display:flex;align-items:center;gap:.75rem;color:white;text-decoration:none;flex-shrink:0}
+.nav-brand-name{font-weight:700;font-size:.95rem;color:white}
+.nav-brand-title{font-size:.7rem;color:var(--teal-300);font-weight:400}
+.nav-links{display:flex;align-items:center;gap:.1rem;list-style:none;flex:1;justify-content:center}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;font-weight:500;padding:.35rem .65rem;border-radius:6px;transition:var(--t);white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:white;background:rgba(255,255,255,.1)}
+.nav-actions{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.btn-ai-toggle{background:linear-gradient(135deg,var(--teal-700),var(--cyan-500));color:white;border:none;padding:.375rem 1rem;border-radius:6px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;transition:var(--t);display:flex;align-items:center;gap:.375rem}
+.btn-ai-toggle:hover{opacity:.9;transform:translateY(-1px)}
+.btn-ai-toggle.active{box-shadow:0 0 20px rgba(6,182,212,.45)}
+.btn-print{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.2);padding:.375rem .75rem;border-radius:6px;font-size:.8rem;cursor:pointer;font-family:'Heebo',sans-serif;transition:var(--t);display:flex;align-items:center;gap:.375rem}
+.btn-print:hover{color:white;border-color:rgba(255,255,255,.4)}
+.hamburger{display:none;background:none;border:none;color:white;cursor:pointer;padding:.25rem}
+/* BACK TO TOP */
+.back-to-top{position:fixed;bottom:2rem;left:2rem;width:48px;height:48px;border-radius:50%;background:var(--blue-800);color:white;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);opacity:0;transform:translateY(20px);transition:var(--t);z-index:999}
+.back-to-top.visible{opacity:1;transform:translateY(0)}
+.back-to-top:hover{background:var(--blue-700);transform:translateY(-2px)}
+/* SECTIONS */
+.section{padding:7rem 2rem}
+.container{max-width:1400px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-tag{display:inline-block;background:linear-gradient(135deg,var(--blue-100),#e0f2fe);color:var(--blue-800);font-size:.8rem;font-weight:700;padding:.25rem 1rem;border-radius:50px;margin-bottom:1rem;letter-spacing:.05em}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:900;margin-bottom:1rem;color:var(--dark)}
+.section-subtitle{font-size:1.125rem;color:var(--gray-500);max-width:600px;margin:0 auto}
+.sep{width:60px;height:4px;background:linear-gradient(to left,var(--teal-500),var(--blue-700));border-radius:2px;margin:1rem auto}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+/* HERO */
+.hero{min-height:95vh;background:linear-gradient(135deg,#0f1c3f 0%,#1a2f5e 40%,#0d2e4a 70%,#0f2d3d 100%);display:flex;align-items:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:32px 32px}
+.hero-inner{max-width:1400px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-content{position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(20,184,166,.15);border:1px solid rgba(20,184,166,.3);color:var(--teal-300);font-size:.78rem;font-weight:600;padding:.375rem 1rem;border-radius:50px;margin-bottom:1.5rem}
+.hero-profile{display:flex;align-items:center;gap:1.25rem;margin-bottom:2rem}
+.hero-photo{width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid rgba(20,184,166,.5);box-shadow:0 0 30px rgba(20,184,166,.25)}
+.hero-name{font-size:1.25rem;font-weight:800;color:white;margin-bottom:.125rem}
+.hero-role{font-size:.875rem;color:var(--teal-300);font-weight:500}
+.hero-title{font-size:clamp(2.25rem,5vw,3.75rem);font-weight:900;color:white;line-height:1.1;margin-bottom:1rem}
+.hero-title span{background:linear-gradient(135deg,var(--teal-300),var(--cyan-300));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-subtitle{font-size:1.1rem;color:rgba(255,255,255,.7);margin-bottom:1.5rem;font-weight:400}
+.hero-desc{font-size:.975rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:2.5rem;max-width:540px}
+.hero-cta{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--teal-700),var(--cyan-500));color:white;text-decoration:none;font-size:1rem;font-weight:700;padding:.875rem 2rem;border-radius:var(--radius-sm);transition:var(--t);box-shadow:0 4px 24px rgba(20,184,166,.3);border:none;cursor:pointer;font-family:'Heebo',sans-serif}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(20,184,166,.4)}
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;z-index:2}
+#hero-canvas{width:100%;max-width:520px;height:400px;display:block}
+/* JOURNEY */
+.journey{background:white}
+.journey-flow{display:flex;gap:0;align-items:flex-start;position:relative;padding-bottom:1.5rem}
+.journey-flow::before{content:'';position:absolute;top:28px;right:48px;left:48px;height:2px;background:linear-gradient(to left,var(--teal-500),var(--blue-800));z-index:0}
+.journey-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer;position:relative;z-index:1;padding:0 .5rem;transition:var(--t)}
+.step-number{width:56px;height:56px;border-radius:50%;background:white;border:3px solid var(--gray-300);display:flex;align-items:center;justify-content:center;font-size:1.125rem;font-weight:800;color:var(--gray-500);transition:var(--t);margin-bottom:.75rem;position:relative;z-index:2}
+.journey-step:hover .step-number,.journey-step.active .step-number{background:linear-gradient(135deg,var(--blue-800),var(--teal-700));border-color:transparent;color:white;transform:scale(1.1);box-shadow:0 4px 16px rgba(30,58,138,.3)}
+.step-label{font-size:.82rem;font-weight:700;color:var(--gray-700);transition:var(--t);line-height:1.4}
+.journey-step:hover .step-label,.journey-step.active .step-label{color:var(--blue-800)}
+#journey-detail{margin-top:2rem;background:var(--bg);border:2px solid var(--blue-100);border-radius:var(--radius-md);padding:2rem;display:none;animation:fadeIn .3s ease;text-align:right}
+#journey-detail.open{display:block}
+#journey-detail h4{font-size:1.25rem;color:var(--blue-800);margin-bottom:.75rem}
+#journey-detail p{margin-bottom:1rem}
+.step-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.step-tag{display:inline-flex;align-items:center;gap:.25rem;background:var(--blue-100);color:var(--blue-800);font-size:.78rem;font-weight:600;padding:.25rem .75rem;border-radius:50px}
+/* USERS */
+.users{background:var(--bg)}
+.users-tabs-wrap{text-align:center;margin-bottom:2.5rem}
+.users-tabs{display:inline-flex;background:white;padding:.4rem;border-radius:var(--radius-md);box-shadow:var(--shadow-sm);gap:.25rem}
+.users-tab{padding:.5rem 1.25rem;border-radius:var(--radius-sm);font-size:.875rem;font-weight:600;cursor:pointer;border:none;font-family:'Heebo',sans-serif;transition:var(--t);color:var(--gray-700);background:transparent}
+.users-tab.active{background:var(--blue-800);color:white;box-shadow:var(--shadow-md)}
+.users-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.user-card{background:white;border-radius:var(--radius-lg);padding:2.5rem;box-shadow:var(--shadow-md);transition:var(--t);border:2px solid transparent;position:relative;overflow:hidden}
+.user-card::before{content:'';position:absolute;top:0;right:0;left:0;height:4px}
+.user-card.seeker::before{background:linear-gradient(to left,var(--blue-800),var(--blue-600))}
+.user-card.worker::before{background:linear-gradient(to left,var(--teal-700),var(--teal-500))}
+.user-card.employer::before{background:linear-gradient(to left,var(--cyan-500),var(--blue-700))}
+.user-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-xl)}
+.user-card.hidden{display:none}
+.user-icon{width:64px;height:64px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
+.seeker .user-icon{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+.worker .user-icon{background:linear-gradient(135deg,#ccfbf1,#99f6e4)}
+.employer .user-icon{background:linear-gradient(135deg,#cffafe,#a5f3fc)}
+.seeker .user-icon svg{stroke:var(--blue-800)}
+.worker .user-icon svg{stroke:var(--teal-700)}
+.employer .user-icon svg{stroke:var(--cyan-500)}
+.user-title{font-size:1.5rem;font-weight:800;margin-bottom:.5rem}
+.user-subtitle{font-size:.9rem;font-weight:600;color:var(--teal-700);margin-bottom:1rem}
+.user-desc{font-size:.875rem;color:var(--gray-700);margin-bottom:1.5rem}
+.user-capabilities{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.user-capabilities li{display:flex;align-items:center;gap:.625rem;font-size:.875rem;color:var(--dark-3);font-weight:500}
+.check-icon{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--teal-500),var(--cyan-500));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.user-emphasis{margin-top:1.5rem;padding:1rem;background:var(--gray-100);border-radius:var(--radius-sm);font-size:.875rem;font-weight:700;color:var(--dark);border-right:3px solid var(--teal-700)}
+/* AI SERVICE */
+.ai-service{background:linear-gradient(135deg,#0f172a 0%,#0f1c3f 50%,#0d2e4a 100%);color:white}
+.ai-service .section-tag{background:rgba(20,184,166,.15);color:var(--teal-300)}
+.ai-service .section-title{color:white}
+.ai-service .section-subtitle{color:rgba(255,255,255,.6)}
+.ai-principles{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:4rem}
+.ai-principle{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-md);padding:2rem;transition:var(--t)}
+.ai-principle:hover{background:rgba(255,255,255,.08);border-color:rgba(20,184,166,.3);transform:translateY(-2px)}
+.ai-principle-num{font-size:3rem;font-weight:900;background:linear-gradient(135deg,var(--teal-500),var(--cyan-500));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:1rem}
+.ai-principle-title{font-size:1.125rem;font-weight:800;color:white;margin-bottom:.75rem}
+.ai-principle-desc{font-size:.875rem;color:rgba(255,255,255,.6);line-height:1.7}
+.ai-flow{display:flex;align-items:center;justify-content:center;gap:0;padding:2rem 0}
+.ai-flow-node{display:flex;flex-direction:column;align-items:center;gap:.75rem;min-width:100px}
+.ai-flow-circle{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.ai-flow-circle.data{background:rgba(30,58,138,.4);border:2px solid rgba(59,130,246,.5)}
+.ai-flow-circle.ai-node{background:rgba(20,184,166,.25);border:2px solid rgba(20,184,166,.6);animation:pulseAI 2.5s ease-in-out infinite}
+.ai-flow-circle.human{background:rgba(6,182,212,.2);border:2px solid rgba(6,182,212,.4)}
+.ai-flow-circle.decision{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3)}
+@keyframes pulseAI{0%,100%{box-shadow:0 0 0 0 rgba(20,184,166,.4)}50%{box-shadow:0 0 0 18px rgba(20,184,166,0)}}
+.ai-flow-label{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.85);text-align:center}
+.ai-flow-connector{flex:1;height:2px;background:linear-gradient(to left,rgba(20,184,166,.5),rgba(20,184,166,.2));position:relative;min-width:50px;max-width:80px}
+.ai-flow-connector::after{content:'';position:absolute;left:6px;top:-4px;width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-right:8px solid rgba(20,184,166,.6)}
+/* USE CASES */
+.use-cases{background:white}
+.use-cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.use-case-card{background:var(--bg);border-radius:var(--radius-md);padding:2rem;transition:var(--t);border:2px solid transparent;position:relative;overflow:hidden}
+.use-case-card::after{content:'';position:absolute;bottom:0;right:0;left:0;height:3px;background:linear-gradient(to left,var(--teal-500),var(--blue-700));transform:scaleX(0);transition:var(--t);transform-origin:right}
+.use-case-card:hover{background:white;border-color:var(--blue-100);transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.use-case-card:hover::after{transform:scaleX(1)}
+body.ai-layer .use-case-card{opacity:.35}
+body.ai-layer .use-case-card.ai-relevant{opacity:1;border-color:var(--teal-500);box-shadow:0 0 20px rgba(20,184,166,.15)}
+body.ai-layer .journey-step.ai-relevant .step-number{background:linear-gradient(135deg,var(--teal-700),var(--cyan-500));border-color:transparent;color:white}
+.use-case-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--blue-100),#e0f2fe);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.use-case-icon svg{stroke:var(--blue-800)}
+.use-case-title{font-size:1.1rem;font-weight:800;color:var(--dark);margin-bottom:.75rem}
+.use-case-desc{font-size:.875rem;color:var(--gray-500);line-height:1.7}
+.ai-badge{display:inline-flex;align-items:center;gap:.25rem;background:rgba(20,184,166,.1);color:var(--teal-700);font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:50px;margin-top:1rem;border:1px solid rgba(20,184,166,.25)}
+/* DASHBOARD */
+.dashboard{background:var(--bg)}
+.demo-banner{display:flex;align-items:center;gap:.75rem;background:linear-gradient(to left,#fff7ed,#fef3c7);border:1px solid #fcd34d;border-radius:var(--radius-sm);padding:.875rem 1.5rem;margin-bottom:2.5rem;font-size:.875rem;color:#92400e;font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2rem}
+.kpi-card{background:white;border-radius:var(--radius-md);padding:1.5rem;box-shadow:var(--shadow-sm);transition:var(--t);border:1px solid var(--gray-100);position:relative;cursor:default}
+.kpi-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.kpi-label{font-size:.72rem;font-weight:700;color:var(--gray-500);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
+.kpi-value{font-size:1.75rem;font-weight:900;color:var(--dark);line-height:1;margin-bottom:.25rem}
+.kpi-trend{font-size:.72rem;color:var(--gray-500)}
+.kpi-trend.up{color:#16a34a}.kpi-trend.down{color:#dc2626}
+.kpi-bar{height:3px;border-radius:3px;background:var(--gray-100);margin-top:.75rem;overflow:hidden}
+.kpi-bar-fill{height:100%;border-radius:3px;background:linear-gradient(to left,var(--teal-500),var(--blue-700));transition:width 1.5s ease}
+.kpi-tooltip{position:absolute;bottom:calc(100% + 8px);right:50%;transform:translateX(50%);background:var(--dark);color:white;font-size:.72rem;padding:.5rem .75rem;border-radius:var(--radius-sm);white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s ease;z-index:10}
+.kpi-tooltip::after{content:'';position:absolute;top:100%;right:50%;transform:translateX(50%);border:5px solid transparent;border-top-color:var(--dark)}
+.kpi-card:hover .kpi-tooltip{opacity:1}
+.charts-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
+.chart-card{background:white;border-radius:var(--radius-md);padding:1.5rem;box-shadow:var(--shadow-sm)}
+.chart-title{font-size:.875rem;font-weight:700;color:var(--dark);margin-bottom:1.5rem}
+/* GOVERNANCE */
+.governance{background:white}
+.governance-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+.gov-item{background:var(--bg);border:2px solid var(--gray-100);border-radius:var(--radius-sm);cursor:pointer;transition:var(--t);overflow:hidden}
+.gov-item:hover{border-color:var(--blue-100);box-shadow:var(--shadow-sm)}
+.gov-item.open{border-color:var(--teal-500)}
+.gov-header{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem}
+.gov-check{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--blue-800),var(--teal-700));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.gov-title{font-size:.95rem;font-weight:700;color:var(--dark);flex:1}
+.gov-arrow{color:var(--gray-500);transition:var(--t)}
+.gov-item.open .gov-arrow{transform:rotate(180deg);color:var(--teal-700)}
+.gov-detail{display:none;padding:.75rem 1.25rem 1rem;font-size:.875rem;color:var(--gray-700);line-height:1.7;border-top:1px solid var(--gray-100)}
+.gov-item.open .gov-detail{display:block}
+/* HORIZONS */
+.horizons{background:linear-gradient(135deg,#f8fafc,#f0f9ff)}
+.horizons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.horizon-card{background:white;border-radius:var(--radius-xl);padding:3rem 2.5rem;box-shadow:var(--shadow-md);transition:var(--t);text-align:center;position:relative;overflow:hidden}
+.horizon-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}
+.horizon-icon{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem}
+.horizon-1 .horizon-icon{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+.horizon-2 .horizon-icon{background:linear-gradient(135deg,#ccfbf1,#99f6e4)}
+.horizon-3 .horizon-icon{background:linear-gradient(135deg,#cffafe,#a5f3fc)}
+.horizon-1 .horizon-icon svg{stroke:var(--blue-800)}
+.horizon-2 .horizon-icon svg{stroke:var(--teal-700)}
+.horizon-3 .horizon-icon svg{stroke:var(--cyan-500)}
+.horizon-num{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-500);margin-bottom:.5rem}
+.horizon-title{font-size:1.75rem;font-weight:900;margin-bottom:1.25rem}
+.horizon-1 .horizon-title{color:var(--blue-800)}.horizon-2 .horizon-title{color:var(--teal-700)}.horizon-3 .horizon-title{color:var(--cyan-500)}
+.horizon-desc{font-size:.875rem;color:var(--gray-700);line-height:1.8}
+.horizons-message{text-align:center;max-width:700px;margin:4rem auto 0;font-size:1rem;color:var(--gray-700);line-height:1.8;padding:2rem;background:white;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border-right:4px solid var(--teal-500)}
+/* CLOSING */
+.closing{background:linear-gradient(135deg,#0f1c3f 0%,#0d2e4a 100%);color:white;text-align:center}
+.closing-quote{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;line-height:1.3;color:white;max-width:800px;margin:0 auto 2rem}
+.closing-quote span{background:linear-gradient(135deg,var(--teal-300),var(--cyan-300));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.closing-desc{font-size:1.1rem;color:rgba(255,255,255,.65);max-width:700px;margin:0 auto;line-height:1.8}
+/* FOOTER */
+.disclaimer{background:var(--bg)}
+.disclaimer-box{background:white;border:1px solid var(--gray-100);border-radius:var(--radius-lg);padding:2.5rem;max-width:900px;margin:0 auto 4rem;position:relative}
+.disclaimer-box::before{content:'הערת מסגרת';position:absolute;top:-12px;right:2rem;background:white;padding:0 .75rem;font-size:.8rem;font-weight:700;color:var(--gray-500);border:1px solid var(--gray-100);border-radius:4px}
+.disclaimer-text{font-size:.875rem;color:var(--gray-700);line-height:1.8}
+footer{background:var(--dark);color:rgba(255,255,255,.7);text-align:center;padding:3rem 2rem}
+.footer-name{font-size:1.5rem;font-weight:900;color:white;margin-bottom:.5rem}
+.footer-title{font-size:.9rem;margin-bottom:.5rem;color:var(--teal-300)}
+.footer-tagline{font-size:.85rem;color:rgba(255,255,255,.5)}
+/* AI LAYER */
+.ai-layer-indicator{display:none;position:fixed;top:72px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--teal-700),var(--cyan-500));color:white;font-size:.8rem;font-weight:700;padding:.5rem 1.25rem;border-radius:50px;z-index:999;box-shadow:0 4px 20px rgba(20,184,166,.4);white-space:nowrap}
+body.ai-layer .ai-layer-indicator{display:block}
+/* RESPONSIVE */
+@media(max-width:1100px){
+.ai-principles{grid-template-columns:repeat(2,1fr)}
+.kpi-grid{grid-template-columns:repeat(3,1fr)}
+.charts-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+.hero-inner{grid-template-columns:1fr;gap:2rem}
+.hero-visual{order:-1}
+#hero-canvas{height:260px}
+.users-grid{grid-template-columns:1fr}
+.horizons-grid{grid-template-columns:1fr}
+.use-cases-grid{grid-template-columns:repeat(2,1fr)}
+.governance-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+.section{padding:4rem 1.25rem}
+.nav-links{display:none;position:fixed;top:64px;right:0;left:0;background:rgba(15,28,63,.98);padding:1rem;flex-direction:column;align-items:stretch;border-top:1px solid rgba(255,255,255,.1)}
+.nav-links.open{display:flex}
+.nav-links a{padding:.75rem 1rem;font-size:1rem}
+.hamburger{display:block}
+.journey-flow{flex-direction:column;gap:1rem}
+.journey-flow::before{display:none}
+.journey-step{flex-direction:row;text-align:right;align-items:flex-start;gap:1rem;padding:.5rem 0}
+.step-number{margin-bottom:0;flex-shrink:0}
+.step-label{padding-top:.75rem}
+.ai-principles{grid-template-columns:1fr}
+.use-cases-grid{grid-template-columns:1fr}
+.kpi-grid{grid-template-columns:repeat(2,1fr)}
+.charts-grid{grid-template-columns:1fr}
+.ai-flow{flex-wrap:wrap;gap:1.5rem;justify-content:center}
+.ai-flow-connector{display:none}
+}
+@media(max-width:480px){.kpi-grid{grid-template-columns:1fr 1fr}.nav-actions .btn-ai-toggle span{display:none}}
+/* PRINT */
+@media print{
+.nav,.back-to-top,.ai-layer-indicator,.hamburger,.btn-print,.btn-ai-toggle,.hero-cta{display:none!important}
+body{font-size:11pt}
+.hero{min-height:auto;padding:2rem;break-inside:avoid}
+.section{padding:2rem 1.5rem}
+.reveal{opacity:1!important;transform:none!important}
+.use-cases-grid,.users-grid,.ai-principles{grid-template-columns:repeat(2,1fr)!important}
+.kpi-grid{grid-template-columns:repeat(4,1fr)!important}
+.horizons-grid{grid-template-columns:repeat(3,1fr)!important}
+.gov-detail{display:block!important}
+#journey-detail{display:block!important}
+.charts-grid{grid-template-columns:repeat(2,1fr)!important}
+h2,h3{break-after:avoid}
+.user-card,.horizon-card,.kpi-card{break-inside:avoid}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+/* === HERO STATS === */
+.hero-stats{display:flex;gap:2rem;margin:1.5rem 0 2rem;padding:1.25rem 1.75rem;background:rgba(255,255,255,.07);border-radius:12px;border:1px solid rgba(255,255,255,.12);width:fit-content}
+.hero-stat{text-align:center;min-width:70px}
+.stat-num{font-size:2.5rem;font-weight:900;color:#5eead4;line-height:1;display:block}
+.stat-lbl{font-size:.7rem;color:rgba(255,255,255,.65);font-weight:500;margin-top:.3rem;display:block;line-height:1.3}
+/* === DNA CARDS === */
+.about{background:white}
+.dna-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.dna-card{background:var(--bg);border-radius:12px;padding:2rem 1.5rem;transition:.3s ease;border:2px solid transparent;position:relative;overflow:hidden}
+.dna-card::before{content:attr(data-num);position:absolute;top:1rem;left:1rem;font-size:3.5rem;font-weight:900;color:rgba(30,58,138,.06);line-height:1;pointer-events:none}
+.dna-card:hover{border-color:#dbeafe;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);transform:translateY(-3px)}
+.dna-icon{width:52px;height:52px;background:linear-gradient(135deg,#dbeafe,#e0f2fe);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.dna-icon svg{stroke:#1e3a8a}
+.dna-title{font-size:1.1rem;font-weight:800;color:#0f172a;margin-bottom:.75rem}
+.dna-desc{font-size:.875rem;color:#374151;line-height:1.75}
+/* === WHY SECTION === */
+.why-section{background:linear-gradient(135deg,#f0f9ff,#f8fafc)}
+.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.why-lead{font-size:1.25rem;font-weight:700;color:#1e3a8a;line-height:1.5;margin-bottom:1.5rem;border-right:4px solid #14b8a6;padding-right:1.5rem}
+.why-text{font-size:.95rem;color:#374151;line-height:1.8;margin-bottom:1rem}
+.why-disclaimer{background:#fefce8;border:1px solid #fef08a;border-right:3px solid #eab308;border-radius:8px;padding:1rem 1.25rem;font-size:.8rem;color:#713f12;margin-top:1.5rem}
+.why-points{display:flex;flex-direction:column;gap:1rem}
+.why-point{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;background:white;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);transition:.3s ease}
+.why-point:hover{box-shadow:0 4px 6px -1px rgba(0,0,0,.1);transform:translateX(-2px)}
+.why-point-icon{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0d9488,#06b6d4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.why-point-text{font-size:.88rem;color:#334155;line-height:1.65}
+.why-point-text strong{display:block;font-weight:700;color:#0f172a;margin-bottom:.25rem}
+/* === IMPL NOTE === */
+.impl-note{background:linear-gradient(135deg,rgba(13,148,136,.07),rgba(6,182,212,.05));border:1px solid rgba(13,148,136,.2);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2rem;font-size:.875rem;color:#334155;line-height:1.7}
+.impl-note strong{color:#0d9488}
+/* === RESPONSIVE === */
+@media(max-width:1000px){.dna-grid{grid-template-columns:repeat(2,1fr)}.why-inner{grid-template-columns:1fr}}
+@media(max-width:600px){.dna-grid{grid-template-columns:1fr}.hero-stats{gap:1.5rem;padding:1rem}}
+/* === ADVANTAGES === */
+.advantages{background:linear-gradient(135deg,var(--blue-900) 0%,var(--dark-2) 100%)}
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.adv-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:.3s ease}
+.adv-card:hover{background:rgba(255,255,255,.09);border-color:rgba(94,234,212,.3);transform:translateY(-2px)}
+.adv-icon{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--teal-700),var(--cyan-500));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.adv-icon svg{stroke:white}
+.adv-body{}
+.adv-label{font-size:.7rem;color:var(--teal-300);font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.25rem}
+.adv-title{font-size:1rem;font-weight:800;color:white;margin-bottom:.35rem;line-height:1.3}
+.adv-desc{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.6}
+.adv-badge{display:inline-block;background:linear-gradient(135deg,rgba(13,148,136,.4),rgba(6,182,212,.3));border:1px solid rgba(94,234,212,.3);color:var(--teal-300);font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:50px;margin-top:.5rem}
+/* === CHECKLIST === */
+.checklist-section{background:white}
+.checklist-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.checklist-note{background:linear-gradient(135deg,rgba(30,58,138,.06),rgba(37,99,235,.04));border:1px solid var(--blue-100);border-radius:12px;padding:1.25rem 1.5rem;font-size:.85rem;color:var(--dark-3);line-height:1.7;margin-bottom:2rem}
+.checklist-note strong{color:var(--blue-800)}
+.checklist-table{width:100%;border-collapse:collapse}
+.checklist-table th{padding:.75rem 1rem;font-size:.78rem;font-weight:700;color:white;text-align:right}
+.checklist-table th:first-child{background:var(--blue-800);border-radius:8px 0 0 0}
+.checklist-table th:last-child{background:var(--teal-700);border-radius:0 8px 0 0}
+.checklist-table td{padding:.85rem 1rem;font-size:.855rem;border-bottom:1px solid var(--gray-100);vertical-align:top;line-height:1.55}
+.checklist-table tr:last-child td{border-bottom:none}
+.checklist-table tr:hover td{background:var(--bg)}
+.check-req{color:var(--dark-3)}
+.check-match{display:flex;align-items:flex-start;gap:.5rem;color:var(--teal-700);font-weight:600}
+.check-match svg{flex-shrink:0;margin-top:2px}
+.check-exceed{color:var(--blue-800);font-weight:700}
+.score-bar{margin-top:1.5rem;padding:1.5rem;background:linear-gradient(135deg,rgba(13,148,136,.08),rgba(30,58,138,.06));border-radius:12px;text-align:center}
+.score-num{font-size:3rem;font-weight:900;color:var(--teal-700);line-height:1}
+.score-label{font-size:.85rem;color:var(--dark-3);margin-top:.5rem}
+/* === APPROACHES === */
+.approaches-section{background:var(--bg)}
+.approaches-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.approach-card{background:white;border-radius:12px;padding:2rem;border:2px solid transparent;transition:.3s ease;display:flex;gap:1.25rem;align-items:flex-start}
+.approach-card:hover{border-color:var(--blue-100);box-shadow:0 10px 15px -3px rgba(0,0,0,.1);transform:translateY(-2px)}
+.approach-num{font-size:2.5rem;font-weight:900;color:var(--blue-100);line-height:1;flex-shrink:0;min-width:50px}
+.approach-body{}
+.approach-title{font-size:1.1rem;font-weight:800;color:var(--dark);margin-bottom:.6rem}
+.approach-desc{font-size:.875rem;color:var(--gray-700);line-height:1.75}
+.approach-example{margin-top:.75rem;font-size:.8rem;color:var(--teal-700);font-weight:600;display:flex;align-items:flex-start;gap:.35rem}
+/* === CONTACT === */
+.contact-section{background:linear-gradient(135deg,var(--blue-900),var(--dark-2))}
+.contact-inner{display:flex;flex-direction:column;align-items:center;gap:2.5rem}
+.contact-title-wrap{text-align:center}
+.contact-headline{font-size:2rem;font-weight:900;color:white;margin-bottom:.75rem}
+.contact-sub{font-size:1rem;color:rgba(255,255,255,.65);max-width:520px}
+.contact-cards{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center}
+.contact-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1.5rem 2.5rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;min-width:220px;transition:.3s ease;text-decoration:none}
+.contact-card:hover{background:rgba(255,255,255,.12);border-color:rgba(94,234,212,.4);transform:translateY(-2px)}
+.contact-card-icon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--teal-700),var(--cyan-500));display:flex;align-items:center;justify-content:center}
+.contact-card-icon svg{stroke:white}
+.contact-card-label{font-size:.72rem;color:var(--teal-300);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.contact-card-value{font-size:1.05rem;font-weight:700;color:white;direction:ltr}
+@media(max-width:900px){.adv-grid{grid-template-columns:repeat(2,1fr)}.checklist-wrap{grid-template-columns:1fr}.approaches-grid{grid-template-columns:1fr}.contact-cards{flex-direction:column;align-items:center}}
+@media(max-width:600px){.adv-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="ai-layer-indicator">מצב שכבת AI פעיל - איזורים רלוונטיים מודגשים</div>
+
+<nav class="nav" id="main-nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">
+      <div>
+        <div class="nav-brand-name">ברק רוזנפלד</div>
+        <div class="nav-brand-title">מועמד: מנהל אגף בכיר טכנולוגיות דיגיטליות ומידע</div>
+      </div>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#hero">ראשי</a></li>
+      <li><a href="#advantages">יתרונות</a></li>
+      <li><a href="#approaches">גישות</a></li>
+      <li><a href="#checklist">התאמה</a></li>
+      <li><a href="#journey">חזון דיגיטלי</a></li>
+      <li><a href="#dashboard">מדדים</a></li>
+      <li><a href="#ai-service">AI</a></li>
+      <li><a href="#horizons">תפיסת תפקיד</a></li>
+      <li><a href="#contact">צור קשר</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-ai-toggle" id="ai-toggle">
+        <i data-lucide="zap" style="width:14px;height:14px"></i>
+        <span>שכבת AI</span>
+      </button>
+      <button class="btn-print" onclick="window.print()">
+        <i data-lucide="printer" style="width:14px;height:14px"></i>
+        <span>הדפסה</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="תפריט">
+        <i data-lucide="menu" style="width:22px;height:22px"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<button class="back-to-top" id="back-to-top" aria-label="חזרה לראש">
+  <i data-lucide="arrow-up" style="width:20px;height:20px"></i>
+</button>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i data-lucide="award" style="width:14px;height:14px"></i>
+        מכרז פומבי 10/2026 | שירות התעסוקה הישראלי
+      </div>
+      <div class="hero-profile">
+        <img src="data:image/jpeg;base64,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" alt="ברק רוזנפלד" class="hero-photo" onerror="this.style.display='none'"/>
+        <div>
+          <div class="hero-name">ברק רוזנפלד</div>
+          <div class="hero-role">מועמד | מנהל אגף בכיר טכנולוגיות דיגיטליות ומידע</div>
+        </div>
+      </div>
+      <h1 class="hero-title">מנהל שמחבר<br><span>בין טכנולוגיה לאנשים</span></h1>
+      <p class="hero-subtitle">15 שנות ניסיון בהובלת מערכות מורכבות | 8 שנות ניהול | תפיסה שמשלבת יציבות, שיפור וחדשנות</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="stat-num">15+</div><div class="stat-lbl">שנות ניסיון טכנולוגי</div></div>
+        <div class="hero-stat"><div class="stat-num">8</div><div class="stat-lbl">שנות ניהול</div></div>
+        <div class="hero-stat"><div class="stat-num">3</div><div class="stat-lbl">אופקי ניהול במקביל</div></div>
+      </div>
+      <p class="hero-desc">אני רואה בתפקיד מנמ"ר בשירות ציבורי הזדמנות לחבר בין יכולות טכנולוגיות בשלות לבין משימה ציבורית אמיתית. הדף הזה מציג את אופן החשיבה שלי, לא תוכנית עבודה. כל הרעיונות מבוססים על מידע ציבורי בלבד ויגובשו לאחר למידת השטח.</p>
+      <button class="hero-cta" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+        <i data-lucide="user" style="width:18px;height:18px"></i>
+        איך אני חושב על התפקיד
+      </button>
+    </div>
+    <div class="hero-visual">
+      <canvas id="hero-canvas"></canvas>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- CHAPTER BREAK 1 -->
+<section style="background:linear-gradient(135deg,#1e3a8a,#0f1c3f);padding:2rem 2rem 1.75rem;text-align:center">
+  <div style="max-width:800px;margin:0 auto">
+    <div style="display:inline-flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:50px;padding:.45rem 1.25rem;margin-bottom:.85rem">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span style="font-size:.75rem;font-weight:700;color:#5eead4;letter-spacing:.05em">חלק א</span>
+    </div>
+    <h2 style="font-size:1.5rem;font-weight:900;color:white;margin-bottom:.5rem">ברק רוזנפלד | המועמד</h2>
+    <p style="font-size:.875rem;color:rgba(255,255,255,.6)">הניסיון, הגישה הניהולית, ההתאמה לתפקיד</p>
+  </div>
+</section>
+<!-- ADVANTAGES -->
+<section class="section advantages" id="advantages">
+  <div class="container">
+    <div class="section-header reveal" style="color:white">
+      <div class="section-tag" style="background:rgba(255,255,255,.1);color:var(--teal-300)">יתרונות תחרותיים</div>
+      <h2 class="section-title" style="color:white">למה אני מתאים לתפקיד הזה</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle" style="color:rgba(255,255,255,.65)">מעבר לעמידה בדרישות הסף, אני מביא ניסיון שעולה על הנדרש בכמה מדדים מרכזיים</p>
+    </div>
+    <div class="adv-grid">
+      <div class="adv-card reveal reveal-delay-1">
+        <div class="adv-icon"><i data-lucide="trending-up" style="width:20px;height:20px"></i></div>
+        <div class="adv-body">
+          <div class="adv-label">ניסיון מקצועי</div>
+          <div class="adv-title">15+ שנות ניסיון בטכנולוגיה</div>
+          <div class="adv-desc">הדרישה: 7 שנים. אני מביא פי שניים ויותר, עם מגוון רחב של תחומים.</div>
+          <div class="adv-badge">מעל הדרישה</div>
+        </div>
+      </div>
+      <div class="adv-card reveal reveal-delay-2">
+        <div class="adv-icon"><i data-lucide="users" style="width:20px;height:20px"></i></div>
+        <div class="adv-body">
+          <div class="adv-label">ניהול צוותים</div>
+          <div class="adv-title">8 שנות ניהול רב-תחומי</div>
+          <div class="adv-desc">ניהלתי צוותים הכוללים פיתוח, תשתיות, בדיקות וחומרה בו-זמנית.</div>
+          <div class="adv-badge">מעל הדרישה</div>
+        </div>
+      </div>
+      <div class="adv-card reveal reveal-delay-3">
+        <div class="adv-icon"><i data-lucide="cpu" style="width:20px;height:20px"></i></div>
+        <div class="adv-body">
+          <div class="adv-label">יתרון ייחודי</div>
+          <div class="adv-title">ניסיון מעשי ב-AI</div>
+          <div class="adv-desc">הטמעה ותפעול של כלי AI בסביבות ייצור, כולל ניהול סיכונים ומדידת תועלת.</div>
+          <div class="adv-badge">מעבר לדרישות</div>
+        </div>
+      </div>
+      <div class="adv-card reveal reveal-delay-1">
+        <div class="adv-icon"><i data-lucide="git-branch" style="width:20px;height:20px"></i></div>
+        <div class="adv-body">
+          <div class="adv-label">ניהול ספקים</div>
+          <div class="adv-title">מו"מ, מיקור חוץ ורכש</div>
+          <div class="adv-desc">ניהול מו"מ עם ספקי חומרה ותוכנה, כתיבת מפרטים, ובקרת ביצוע חוזים.</div>
+          <div class="adv-badge">עומד בדרישה</div>
+        </div>
+      </div>
+      <div class="adv-card reveal reveal-delay-2">
+        <div class="adv-icon"><i data-lucide="database" style="width:20px;height:20px"></i></div>
+        <div class="adv-body">
+          <div class="adv-label">מערכות גדולות</div>
+          <div class="adv-title">מערכות מידע מבוזרות</div>
+          <div class="adv-desc">ניסיון בפיתוח, תחזוקה והטמעה של מערכות מידע גדולות בסביבות מורכבות.</div>
+          <div class="adv-badge">עומד בדרישה</div>
+        </div>
+      </div>
+      <div class="adv-card reveal reveal-delay-3">
+        <div class="adv-icon"><i data-lucide="compass" style="width:20px;height:20px"></i></div>
+        <div class="adv-body">
+          <div class="adv-label">חשיבה מערכתית</div>
+          <div class="adv-title">ראייה ארגונית רחבה</div>
+          <div class="adv-desc">יכולת לחבר בין מטרות ארגוניות, צרכי שטח, תשתיות ותקציב לתוכנית עבודה ריאלית.</div>
+          <div class="adv-badge">עומד בדרישה</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ABOUT / DNA -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">הגישה הניהולית שלי</div>
+      <h2 class="section-title">ארבעה עקרונות שמנחים אותי</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">אלה לא סיסמאות. אלה דפוסי עבודה שצברתי על פני 15 שנה.</p>
+    </div>
+    <div class="dna-grid">
+      <div class="dna-card reveal reveal-delay-1" data-num="01">
+        <div class="dna-icon"><i data-lucide="link" style="width:22px;height:22px"></i></div>
+        <h3 class="dna-title">מחבר טכנולוגיה לצורך עסקי</h3>
+        <p class="dna-desc">בכל תפקיד שניהלתי, השאלה הראשונה שלי לא הייתה מה הטכנולוגיה הכי טובה, אלא מה הצורך האמיתי. הרבה פרויקטים נכשלים לא מסיבות טכניות אלא כי לא הגדירו נכון את הבעיה.</p>
+      </div>
+      <div class="dna-card reveal reveal-delay-2" data-num="02">
+        <div class="dna-icon"><i data-lucide="users" style="width:22px;height:22px"></i></div>
+        <h3 class="dna-title">בונה צוותים ומאציל סמכות</h3>
+        <p class="dna-desc">ניהלתי צוותים רב-תחומיים הכוללים פיתוח, תשתיות, בדיקות וחומרה. למדתי שמנהל טוב יודע מתי להיכנס לעומק ומתי לאפשר לאנשים לעבוד. הצלחת הצוות היא ההצלחה שלי.</p>
+      </div>
+      <div class="dna-card reveal reveal-delay-3" data-num="03">
+        <div class="dna-icon"><i data-lucide="gauge" style="width:22px;height:22px"></i></div>
+        <h3 class="dna-title">מחויב למדידה ולנתונים</h3>
+        <p class="dna-desc">כל פרויקט שניהלתי התחיל בהגדרת מדדי הצלחה ברורים. לא כדי לדווח לניהול, אלא כדי שאדע בזמן אמת האם אנחנו בכיוון הנכון ואם לא, מה לשנות.</p>
+      </div>
+      <div class="dna-card reveal reveal-delay-4" data-num="04">
+        <div class="dna-icon"><i data-lucide="layers" style="width:22px;height:22px"></i></div>
+        <h3 class="dna-title">חושב בשלושה אופקים בו-זמנית</h3>
+        <p class="dna-desc">מנהל שמתמקד רק בשוטף מפספס את ה-Next. מנהל שחושב רק על עתיד מפספס את ה-Now. למדתי לנהל יציבות, שיפור ועתיד בכל שבוע.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS ROLE -->
+<section class="section why-section" id="why">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">מה מושך אותי לתפקיד</div>
+      <h2 class="section-title">למה שירות התעסוקה, למה עכשיו</h2>
+      <div class="sep"></div>
+    </div>
+    <div class="why-inner reveal">
+      <div>
+        <p class="why-lead">שירות תעסוקה הוא אחד הארגונים הציבוריים שבהם למנמ"ר יש השפעה ישירה על חיי אנשים, לא רק על תהליכים.</p>
+        <p class="why-text">מה שמושך אותי לתפקיד הזה הוא השילוב בין מורכבות טכנולוגית אמיתית, ממשקים חיצוניים רבים, מגוון אוכלוסיות עם צרכים שונים, ובין משימה ציבורית שיש לה משמעות אנושית.</p>
+        <p class="why-text">ב-15 שנות ניסיון הובלתי מערכות מורכבות, פיתחתי יכולת לעבוד עם אי-ודאות, להנהיג שינוי מבלי לאבד יציבות, ולבנות גשרים בין עולמות שונים בתוך ארגון. אני מאמין שאפשר לשפר את השירות לדורש העבודה ולמעסיק בצורה משמעותית, על ידי תעדוף חכם ועבודה שיטתית יחד עם הצוותים הקיימים.</p>
+        <div class="why-disclaimer">
+          <strong>הערה:</strong> אני לא מכיר את המערכות, התהליכים והאתגרים הפנימיים של שירות התעסוקה. כל מה שכתוב כאן מבוסס על מידע ציבורי בלבד, ומייצג אופן חשיבה, לא תוכנית עבודה סופית.
+        </div>
+      </div>
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-point-icon"><i data-lucide="target" style="width:18px;height:18px;stroke:white"></i></div>
+          <div class="why-point-text"><strong>ניסיון ניהול עם תקציב ומשאבים</strong>ניהלתי תקציבי ענן, רישיונות תוכנה ורכש חומרה. אני יודע לקבל החלטות תחת אילוצים ולנהל עדיפויות מתחרות.</div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon"><i data-lucide="git-branch" style="width:18px;height:18px;stroke:white"></i></div>
+          <div class="why-point-text"><strong>ניסיון בממשקים חוצי-ארגון</strong>ניהלתי ממשקים בין פיתוח, חומרה, בדיקות, תפעול ויחידות עסקיות. סביבה עם מגוון יחידות היא סביבה שאני מכיר.</div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon"><i data-lucide="shield" style="width:18px;height:18px;stroke:white"></i></div>
+          <div class="why-point-text"><strong>גישה שמשלבת יציבות וחדשנות</strong>בניסיוני, אפשר לקדם שיפורים משמעותיים מבלי לסכן יציבות תפעולית, בתנאי שיש גישה שיטתית וסדרי עדיפות ברורים.</div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon"><i data-lucide="cpu" style="width:18px;height:18px;stroke:white"></i></div>
+          <div class="why-point-text"><strong>הבנה מעמיקה של AI מעשי</strong>ניסיון ביישום כלי AI בסביבות תפעוליות, עם הבנת מגבלות, סיכונים ותנאי ההצלחה שהופכים פיילוט לתוצאה.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section class="section checklist-section" id="checklist">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">התאמה לתפקיד</div>
+      <h2 class="section-title">דרישות המכרז מול הניסיון שלי</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">השוואה ישירה בין דרישות מכרז 10/2026 לבין הרקע המקצועי שלי</p>
+    </div>
+    <div class="checklist-note reveal">
+      <strong>הערה:</strong> ההתאמות המפורטות כאן מבוססות על הניסיון שצברתי. מסמכי ההוכחה (תארים, תעודות, אישורי עבודה) צורפו להגשת המועמדות.
+    </div>
+    <div class="checklist-wrap">
+      <div class="reveal">
+        <table class="checklist-table">
+          <thead>
+            <tr>
+              <th>דרישת המכרז</th>
+              <th>הניסיון שלי</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="check-req">תואר ראשון במערכות מידע / מדעי מחשב / הנדסה</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>תואר ראשון, מסמכים מצורפים</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">7 שנות ניסיון מקצועי בתחום מערכות מידע</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span><span class="check-exceed">15+ שנים</span>, פי שניים מהנדרש</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">5 שנים ניהול צוות מדיסציפלינות שונות</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span><span class="check-exceed">8 שנים</span>, פיתוח + תשתיות + חומרה</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">ניהול תקציב פרויקטים בתחום המחשוב</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניהול תקציבי ענן, רכש ורישיונות</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">ניסיון בסיסי נתונים Oracle / Microsoft</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניסיון עם בסיסי נתונים רלציוניים ומבוזרים</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">ניסיון עבודה מול ספקים ומיקור חוץ</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניהול ספקים, מו"מ, ובקרת חוזים</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">כתיבת מפרטים להצעות מחיר</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניסיון בכתיבת RFP ומפרטים טכניים</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">ניסיון במערכות מידע גדולות ומבוזרות</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>פיתוח, תחזוקה והטמעה בסביבות מורכבות</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">ניסיון הטמעת מערכות</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>הטמעת מערכות מידע בארגונים מורכבים</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">ניהול צוותי עבודה חוצי-ארגון</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ממשקים בין יחידות, ספקים ובעלי עניין</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="reveal">
+        <div class="score-bar">
+          <div class="score-num">10/10</div>
+          <div class="score-label">עומד בכל דרישות הסף ובדרישות הנוספות</div>
+        </div>
+        <div style="margin-top:1.5rem;padding:1.5rem;background:linear-gradient(135deg,rgba(30,58,138,.06),rgba(37,99,235,.04));border-radius:12px;border:1px solid var(--blue-100)">
+          <h4 style="font-size:1rem;font-weight:800;color:var(--blue-800);margin-bottom:1rem">שלושה יתרונות שמעבר לדרישות</h4>
+          <div style="display:flex;flex-direction:column;gap:.75rem">
+            <div style="display:flex;gap:.75rem;align-items:flex-start;font-size:.875rem">
+              <i data-lucide="star" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:2px"></i>
+              <span><strong>ניסיון AI מעשי</strong> שאינו בדרישות אך רלוונטי מאוד לעתיד הארגון</span>
+            </div>
+            <div style="display:flex;gap:.75rem;align-items:flex-start;font-size:.875rem">
+              <i data-lucide="star" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:2px"></i>
+              <span><strong>ניסיון פי שניים מהנדרש</strong> בניסיון כולל ובניהול צוותים</span>
+            </div>
+            <div style="display:flex;gap:.75rem;align-items:flex-start;font-size:.875rem">
+              <i data-lucide="star" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:2px"></i>
+              <span><strong>ניסיון בשירות ציבורי</strong> ומשאבי אנוש שמוסיף הבנת ההקשר</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- APPROACHES -->
+<section class="section approaches-section" id="approaches">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">שיטת העבודה שלי</div>
+      <h2 class="section-title">ארבע גישות ניהוליות שאני מביא</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">לא עקרונות על הנייר, אלא דפוסי עבודה שהוכחו בשטח</p>
+    </div>
+    <div class="approaches-grid">
+      <div class="approach-card reveal reveal-delay-1">
+        <div class="approach-num">01</div>
+        <div class="approach-body">
+          <h3 class="approach-title">גישה ממוקדת-צורך, לא ממוקדת-טכנולוגיה</h3>
+          <p class="approach-desc">לפני כל פרויקט, אני דורש להגדיר בבירור את הבעיה שאנחנו פותרים ואת האדם שנהנה מהפתרון. טכנולוגיה היא תמיד אמצעי, לא מטרה.</p>
+          <div class="approach-example"><i data-lucide="arrow-left" style="width:14px;height:14px;flex-shrink:0;margin-top:2px"></i>מתחיל תמיד בשאלה: "מה הבעיה שאנחנו פותרים ולמי?"</div>
+        </div>
+      </div>
+      <div class="approach-card reveal reveal-delay-2">
+        <div class="approach-num">02</div>
+        <div class="approach-body">
+          <h3 class="approach-title">גישה הדרגתית: פיילוט, מדידה, פריסה</h3>
+          <p class="approach-desc">כל שינוי משמעותי מתחיל בפיילוט מבוקר עם מדדי הצלחה ברורים שמוגדרים מראש. אני לא מאמין בפרויקטים "빅 בנג" שנפרסים על הכל ביום אחד. גישה הדרגתית מפחיתה סיכון, מאפשרת למידה, ומייצרת ביטחון אצל כל הגורמים.</p>
+          <div class="approach-example"><i data-lucide="arrow-left" style="width:14px;height:14px;flex-shrink:0;margin-top:2px"></i>מגדיר קריטריוני הצלחה לפני שמתחיל, לא לאחר מכן</div>
+        </div>
+      </div>
+      <div class="approach-card reveal reveal-delay-3">
+        <div class="approach-num">03</div>
+        <div class="approach-body">
+          <h3 class="approach-title">גישה מבוססת-נתונים עם שיקול דעת</h3>
+          <p class="approach-desc">נתונים הם הבסיס להחלטות, אבל לא התחליף לשיקול דעת מקצועי. אני בונה Dashboard לכל פרויקט שמראה מה קורה בזמן אמת, אבל תמיד שואל: "מה הנתונים לא מספרים לנו?" ומוודא שאנחנו מבינים את ה-context.</p>
+          <div class="approach-example"><i data-lucide="arrow-left" style="width:14px;height:14px;flex-shrink:0;margin-top:2px"></i>נתונים מכוונים, אנשי מקצוע מחליטים</div>
+        </div>
+      </div>
+      <div class="approach-card reveal reveal-delay-4">
+        <div class="approach-num">04</div>
+        <div class="approach-body">
+          <h3 class="approach-title">גישת שלושת האופקים: יציבות, שיפור, עתיד</h3>
+          <p class="approach-desc">מנהל טוב לא יכול להתמקד רק באחד מהם. בכל שבוע אני שואל: מה צריך לייצב עכשיו? מה ניתן לשפר בטווח הקצר? ומה כדאי לבחון לטווח ארוך? זה אומר שגם בתקופות לחוצות אני שומר על מבט קדימה, וגם כשמדברים על עתיד אני לא מאבד את היציבות השוטפת.</p>
+          <div class="approach-example"><i data-lucide="arrow-left" style="width:14px;height:14px;flex-shrink:0;margin-top:2px"></i>שלוש שאלות שאני שואל בכל שיחת ניהול</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER BREAK -->
+<section style="background:linear-gradient(135deg,#0f1c3f,#1e293b);padding:3.5rem 2rem;text-align:center">
+  <div style="max-width:800px;margin:0 auto">
+    <div style="display:inline-flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:.5rem 1.5rem;margin-bottom:1.25rem">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <span style="font-size:.8rem;font-weight:700;color:#5eead4;letter-spacing:.05em">חלק ב</span>
+    </div>
+    <h2 style="font-size:1.75rem;font-weight:900;color:white;margin-bottom:.75rem;line-height:1.3">הראייה הדיגיטלית שלי לשירות התעסוקה</h2>
+    <p style="font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.7;max-width:620px;margin:0 auto 1.5rem">המנמ"ר בשירות התעסוקה משרת שלוש קבוצות מרכזיות: דורשי עבודה, עובדי השירות, ומעסיקים. לצדן, הנהלת הארגון זקוקה לנראות, ולרשויות המדינה נדרשת הגנת פרטיות ועמידה ברגולציה.</p>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.4);max-width:500px;margin:0 auto">מבוסס על מידע ציבורי בלבד. כיוון חשיבה, לא תוכנית עבודה. יגובש לאחר למידת השטח.</p>
+  </div>
+</section>
+<!-- JOURNEY -->
+<section class="section journey" id="journey">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">מסע דורש העבודה</div>
+      <h2 class="section-title">המסע של דורש העבודה כנקודת מוצא לחשיבה הדיגיטלית</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">כדי לשפר שירות דיגיטלי, צריך קודם להבין את המסע כולו. לחצו על כל שלב לפרטים.</p>
+    </div>
+    <div class="reveal">
+      <div class="journey-flow" id="journey-flow">
+        <div class="journey-step ai-relevant" data-step="1"><div class="step-number">1</div><div class="step-label">רישום והיכרות</div></div>
+        <div class="journey-step ai-relevant" data-step="2"><div class="step-number">2</div><div class="step-label">מיפוי יכולות וחסמים</div></div>
+        <div class="journey-step ai-relevant" data-step="3"><div class="step-number">3</div><div class="step-label">המלצות מותאמות</div></div>
+        <div class="journey-step ai-relevant" data-step="4"><div class="step-number">4</div><div class="step-label">הכשרה וליווי</div></div>
+        <div class="journey-step ai-relevant" data-step="5"><div class="step-number">5</div><div class="step-label">חיבור למעסיק</div></div>
+        <div class="journey-step ai-relevant" data-step="6"><div class="step-number">6</div><div class="step-label">השמה ומעקב</div></div>
+      </div>
+      <div id="journey-detail"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- USERS -->
+<section class="section users" id="users">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">מי משתמש בשירות התעסוקה</div>
+      <h2 class="section-title">שלוש קבוצות שהמנמ"ר חייב לשרת</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">ממשקי הטכנולוגיה של שירות התעסוקה נוגעים בשלוש קבוצות שונות לחלוטין. כל אחת דורשת חשיבה עצמאית.</p>
+    </div>
+    <div class="users-tabs-wrap reveal">
+      <div class="users-tabs">
+        <button class="users-tab active" data-user="all">כולם</button>
+        <button class="users-tab" data-user="seeker">דורש עבודה</button>
+        <button class="users-tab" data-user="worker">עובד שירות</button>
+        <button class="users-tab" data-user="employer">מעסיק</button>
+      </div>
+    </div>
+    <div class="users-grid">
+      <div class="user-card seeker reveal reveal-delay-1" data-user-card="seeker">
+        <div class="user-icon"><i data-lucide="user" style="width:28px;height:28px"></i></div>
+        <h3 class="user-title">דורש העבודה</h3>
+        <div class="user-subtitle">מלווה דיגיטלי אישי</div>
+        <p class="user-desc">עוזר דיגיטלי בתוך האזור האישי שמסביר מה השלב הבא, אילו מסמכים חסרים, אילו משרות עשויות להתאים, איזו הכשרה יכולה לשפר את סיכויי ההשמה וכיצד להתכונן לפגישה.</p>
+        <ul class="user-capabilities">
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>הכוונה בשפה פשוטה</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>תזכורות ועדכוני סטטוס</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>הצעת משרות מתאימות</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>המלצה על הכשרות</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>הכנה לראיון</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>הצגת סטטוס התהליך</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>אפשרות להבין ולתקן מידע</li>
+        </ul>
+      </div>
+      <div class="user-card worker reveal reveal-delay-2" data-user-card="worker">
+        <div class="user-icon"><i data-lucide="briefcase" style="width:28px;height:28px"></i></div>
+        <h3 class="user-title">עובד שירות התעסוקה</h3>
+        <div class="user-subtitle">Copilot מקצועי לעובד</div>
+        <p class="user-desc">כלי AI שמפחית עבודה אדמיניסטרטיבית ומאפשר לעובד להתמקד באדם שמולו.</p>
+        <ul class="user-capabilities">
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>סיכום תיק לפני פגישה</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>הצגת היסטוריית פעולות</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>איתור נהלים ומידע מקצועי</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>הצעת שאלות להמשך</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>טיוטת סיכום פגישה</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>זיהוי תהליך שנתקע</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>התראה על מסמכים חסרים</li>
+        </ul>
+        <div class="user-emphasis">AI מסייע, העובד המקצועי מחליט.</div>
+      </div>
+      <div class="user-card employer reveal reveal-delay-3" data-user-card="employer">
+        <div class="user-icon"><i data-lucide="building-2" style="width:28px;height:28px"></i></div>
+        <h3 class="user-title">המעסיק</h3>
+        <div class="user-subtitle">תהליך גיוס ממוקד ואיכותי יותר</div>
+        <p class="user-desc">ממשק שמאפשר למעסיק להבין את סטטוס האיוש, איכות ההתאמות ופערי המיומנויות.</p>
+        <ul class="user-capabilities">
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>סטטוס איוש עדכני</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>איכות התאמות מועמדים</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>משוב על מועמדים</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>זיהוי דרישות מגבילות מדי</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>הצעה לשיפור ניסוח משרה</li>
+          <li><div class="check-icon"><i data-lucide="check" style="width:12px;height:12px;stroke:white"></i></div>תמונת מצב שלבי גיוס</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="section dashboard" id="dashboard">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">מדדים ותמונת מצב</div>
+      <h2 class="section-title">ניהול מבוסס-נתונים מתחיל בתמונת מצב ברורה</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">לפני כל שיפור, צריך לדעת את נקודת הבסיס. Dashboard ניהולי מאפשר לראות מה עובד ומה לא, בזמן אמת.</p>
+    </div>
+    <div class="demo-banner reveal">
+      <i data-lucide="info" style="width:18px;height:18px;color:#d97706"></i>
+      <strong>נתוני המחשה בלבד</strong> - אינם מייצגים נתוני שירות התעסוקה האמיתיים
+    </div>
+    <div class="kpi-grid" id="kpi-grid"></div>
+    <div class="charts-grid reveal">
+      <div class="chart-card"><div class="chart-title">מגמת השמות לאורך זמן (המחשה)</div><canvas id="line-chart" height="160"></canvas></div>
+      <div class="chart-card"><div class="chart-title">התפלגות לפי שלב מסע (המחשה)</div><canvas id="bar-chart" height="160"></canvas></div>
+      <div class="chart-card"><div class="chart-title">יעדי ביצוע מרכזיים (המחשה)</div><div id="rings-container" style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;align-items:center;padding-top:.5rem"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SERVICE -->
+<section class="section ai-service" id="ai-service">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">חדשנות: עקרונות AI</div>
+      <h2 class="section-title">AI בשירות האדם, לא במקום האדם</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">ארבעה עקרונות שמנחים אותי ביישום AI אחראי בארגון ציבורי</p>
+    </div>
+    <div class="ai-principles">
+      <div class="ai-principle reveal reveal-delay-1">
+        <div class="ai-principle-num">01</div>
+        <h3 class="ai-principle-title">AI מציע ומסביר</h3>
+        <p class="ai-principle-desc">המערכת מסייעת, ממליצה ומנגישה מידע. כל פלט ניתן להסברה ולהבנה על ידי המשתמש.</p>
+      </div>
+      <div class="ai-principle reveal reveal-delay-2">
+        <div class="ai-principle-num">02</div>
+        <h3 class="ai-principle-title">אדם מקצועי מאשר ומחליט</h3>
+        <p class="ai-principle-desc">החלטות משמעותיות נשארות תחת אחריות אנושית מלאה. AI הוא כלי עזר, לא מקבל החלטות.</p>
+      </div>
+      <div class="ai-principle reveal reveal-delay-3">
+        <div class="ai-principle-num">03</div>
+        <h3 class="ai-principle-title">האזרח יכול להבין ולתקן</h3>
+        <p class="ai-principle-desc">יש לאפשר שקיפות, הסבר, תיקון מידע וערעור. הזכות לתיקון מובנית בתהליך.</p>
+      </div>
+      <div class="ai-principle reveal reveal-delay-4">
+        <div class="ai-principle-num">04</div>
+        <h3 class="ai-principle-title">כל שימוש נמדד ומבוקר</h3>
+        <p class="ai-principle-desc">יש למדוד איכות, פרטיות, אבטחת מידע, הטיות וערך בפועל. מדידה מתמשכת היא חלק בלתי נפרד מהיישום.</p>
+      </div>
+    </div>
+    <div class="ai-flow reveal">
+      <div class="ai-flow-node">
+        <div class="ai-flow-circle data"><i data-lucide="database" style="width:28px;height:28px;stroke:rgba(147,197,253,.9)"></i></div>
+        <div class="ai-flow-label">מידע</div>
+      </div>
+      <div class="ai-flow-connector"></div>
+      <div class="ai-flow-node">
+        <div class="ai-flow-circle ai-node"><i data-lucide="cpu" style="width:28px;height:28px;stroke:rgba(94,234,212,.95)"></i></div>
+        <div class="ai-flow-label">AI</div>
+      </div>
+      <div class="ai-flow-connector"></div>
+      <div class="ai-flow-node">
+        <div class="ai-flow-circle human"><i data-lucide="user-check" style="width:28px;height:28px;stroke:rgba(103,232,249,.95)"></i></div>
+        <div class="ai-flow-label">בקרה אנושית</div>
+      </div>
+      <div class="ai-flow-connector"></div>
+      <div class="ai-flow-node">
+        <div class="ai-flow-circle decision"><i data-lucide="check-circle" style="width:28px;height:28px;stroke:rgba(255,255,255,.85)"></i></div>
+        <div class="ai-flow-label">החלטה</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="section use-cases" id="use-cases">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">חדשנות: כיוונים אפשריים</div>
+      <h2 class="section-title">שישה כיווני AI שהייתי מציע לבחון</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">אינני יודע מה קיים או לא קיים בשירות התעסוקה. אלו כיוונים שנראים לי בשלים טכנולוגית ופרגמטית, בכפוף לבדיקה מול הנתונים, המערכות והצוותים הקיימים.</p>
+    </div>
+    <div class="use-cases-grid">
+      <div class="use-case-card ai-relevant reveal reveal-delay-1">
+        <div class="use-case-icon"><i data-lucide="file-text" style="width:22px;height:22px"></i></div>
+        <h3 class="use-case-title">חילוץ מיומנויות מקורות חיים</h3>
+        <p class="use-case-desc">זיהוי אוטומטי של ניסיון, כלים, תחומי ידע ומיומנויות שניתן להעביר בין מקצועות.</p>
+        <div class="ai-badge"><i data-lucide="zap" style="width:10px;height:10px"></i> יישום AI</div>
+      </div>
+      <div class="use-case-card ai-relevant reveal reveal-delay-2">
+        <div class="use-case-icon"><i data-lucide="clipboard-list" style="width:22px;height:22px"></i></div>
+        <h3 class="use-case-title">סיכום תיק לפני פגישה</h3>
+        <p class="use-case-desc">יצירת תקציר ממוקד של היסטוריית הפעולות, החסמים והצעדים שכבר בוצעו.</p>
+        <div class="ai-badge"><i data-lucide="zap" style="width:10px;height:10px"></i> יישום AI</div>
+      </div>
+      <div class="use-case-card ai-relevant reveal reveal-delay-3">
+        <div class="use-case-icon"><i data-lucide="search" style="width:22px;height:22px"></i></div>
+        <h3 class="use-case-title">איתור ידע ונהלים</h3>
+        <p class="use-case-desc">עוזר פנימי שמאפשר לעובדים למצוא במהירות נוהל, מסמך או מידע מקצועי.</p>
+        <div class="ai-badge"><i data-lucide="zap" style="width:10px;height:10px"></i> יישום AI</div>
+      </div>
+      <div class="use-case-card ai-relevant reveal reveal-delay-1">
+        <div class="use-case-icon"><i data-lucide="target" style="width:22px;height:22px"></i></div>
+        <h3 class="use-case-title">התאמת משרות לפי מיומנויות</h3>
+        <p class="use-case-desc">התאמה שאינה מבוססת רק על שם מקצוע, אלא על Skills, ניסיון ופוטנציאל.</p>
+        <div class="ai-badge"><i data-lucide="zap" style="width:10px;height:10px"></i> יישום AI</div>
+      </div>
+      <div class="use-case-card ai-relevant reveal reveal-delay-2">
+        <div class="use-case-icon"><i data-lucide="alert-circle" style="width:22px;height:22px"></i></div>
+        <h3 class="use-case-title">זיהוי תהליך שנתקע</h3>
+        <p class="use-case-desc">איתור מקרים שבהם לא הייתה התקדמות, חסרים מסמכים או נדרש מגע אנושי.</p>
+        <div class="ai-badge"><i data-lucide="zap" style="width:10px;height:10px"></i> יישום AI</div>
+      </div>
+      <div class="use-case-card ai-relevant reveal reveal-delay-3">
+        <div class="use-case-icon"><i data-lucide="trending-up" style="width:22px;height:22px"></i></div>
+        <h3 class="use-case-title">ניתוח מגמות תעסוקה</h3>
+        <p class="use-case-desc">זיהוי פערי מיומנויות, מקצועות בצמיחה, עומסים והכשרות בעלות השפעה.</p>
+        <div class="ai-badge"><i data-lucide="zap" style="width:10px;height:10px"></i> יישום AI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNANCE -->
+<section class="section governance" id="governance">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">ממשל AI</div>
+      <h2 class="section-title">חדשנות אחראית דורשת מסגרת ברורה</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">לחצו על כל סעיף לפרטים</p>
+    </div>
+    <div class="governance-grid" id="governance-grid"></div>
+  </div>
+</section>
+
+<!-- HORIZONS -->
+<section class="section horizons" id="horizons">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">כך אני מנהל</div>
+      <h2 class="section-title">שלושה אופקים, ניהול מקביל</h2>
+      <div class="sep"></div>
+    </div>
+    <div class="horizons-grid">
+      <div class="horizon-card horizon-1 reveal reveal-delay-1">
+        <div class="horizon-icon"><i data-lucide="shield" style="width:34px;height:34px"></i></div>
+        <div class="horizon-num">אופק 1</div>
+        <h3 class="horizon-title">יציבות</h3>
+        <p class="horizon-desc">זמינות, אבטחת מידע, המשכיות עסקית, ביצועי ספקים, תחזוקה וניהול סיכונים. הבסיס שעליו הכל עומד.</p>
+      </div>
+      <div class="horizon-card horizon-2 reveal reveal-delay-2">
+        <div class="horizon-icon"><i data-lucide="refresh-cw" style="width:34px;height:34px"></i></div>
+        <div class="horizon-num">אופק 2</div>
+        <h3 class="horizon-title">שיפור מתמשך</h3>
+        <p class="horizon-desc">פישוט תהליכים, חוויית משתמש, מדדים, אוטומציה, איכות שירות והפחתת עומס. המנוע שמוביל קדימה.</p>
+      </div>
+      <div class="horizon-card horizon-3 reveal reveal-delay-3">
+        <div class="horizon-icon"><i data-lucide="lightbulb" style="width:34px;height:34px"></i></div>
+        <div class="horizon-num">אופק 3</div>
+        <h3 class="horizon-title">עתיד</h3>
+        <p class="horizon-desc">AI, נתונים, ארכיטקטורה מודרנית, יכולות חדשות, שינויי שוק ומיומנויות עתידיות. ההכנה של היום לצורכי מחר.</p>
+      </div>
+    </div>
+    <div class="horizons-message reveal">
+      בפרקטיקה, זה אומר שבכל שבוע אני שואל: מה דרוש לייצב עכשיו? מה ניתן לשפר בטווח הקצר? ומה כדאי לבחון לטווח ארוך? שלושת השאלות דורשות תשובה בו-זמנית.
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="section closing" id="closing">
+  <div class="container">
+    <div class="reveal">
+      <p style="font-size:.9rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2rem">מסר מרכזי</p>
+      <h2 class="closing-quote">אני מציע ניסיון מוכח, תפיסת ניהול בשלה,<br>ויכולת <span>לתרגם אסטרטגיה לביצוע</span>.</h2>
+      <div style="width:60px;height:4px;background:linear-gradient(to left,#14b8a6,#06b6d4);border-radius:2px;margin:2rem auto"></div>
+      <p class="closing-desc">אני מאמין שאפשר לשפר משמעותית את שירות התעסוקה הדיגיטלי בתוך המסגרת הקיימת, על בסיס תעדוף נכון ועבודה שיטתית. הדף הזה מציג את אופן החשיבה שלי. הצעד הבא הוא שיחה.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER + FOOTER -->
+<section class="section disclaimer" style="padding-bottom:0">
+  <div class="container">
+    <div class="disclaimer-box reveal">
+      <p class="disclaimer-text">מסמך זה הוכן לצורך המחשת תפיסת הניהול והחשיבה הטכנולוגית שלי במסגרת המועמדות לתפקיד. אינני עובד בשירות התעסוקה ואיני חשוף למערכות, לתוכניות העבודה, לנתונים או לאתגרים הפנימיים של הארגון. הרעיונות המוצגים מבוססים על מידע ציבורי בלבד ואינם מהווים המלצה אופרטיבית ללא תהליך למידה, מיפוי ושיח עם הנהלת השירות והצוותים המקצועיים.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-title-wrap reveal">
+        <h2 class="contact-headline">מוזמנים לפנות אליי</h2>
+        <p class="contact-sub">אשמח לשיח מקצועי, לשאלות נוספות, או לכל פרט שיעזור לוועדה לקבל החלטה מושכלת</p>
+      </div>
+      <div class="contact-cards reveal">
+        <a href="mailto:barak2rozenfeld@gmail.com" class="contact-card">
+          <div class="contact-card-icon"><i data-lucide="mail" style="width:22px;height:22px"></i></div>
+          <div class="contact-card-label">אימייל</div>
+          <div class="contact-card-value">barak2rozenfeld@gmail.com</div>
+        </a>
+        <a href="tel:0535316043" class="contact-card">
+          <div class="contact-card-icon"><i data-lucide="phone" style="width:22px;height:22px"></i></div>
+          <div class="contact-card-label">טלפון</div>
+          <div class="contact-card-value" dir="ltr">053-531-6043</div>
+        </a>
+      </div>
+      <p class="reveal" style="color:rgba(255,255,255,.4);font-size:.78rem;text-align:center">ברק רוזנפלד | מועמד: מנהל אגף בכיר טכנולוגיות דיגיטליות ומידע | מכרז 10/2026</p>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-name">ברק רוזנפלד</div>
+  <div class="footer-title">מועמד לתפקיד מנהל אגף בכיר טכנולוגיות דיגיטליות ומידע</div>
+  <div class="footer-tagline">תפיסת שירות תעסוקתי דיגיטלי, מחובר וחכם</div>
+</footer>
+
+<script>
+// ============================================
+// DATA
+// ============================================
+const journeyData = [
+  {step:1,title:'רישום והיכרות',desc:'איסוף מידע בצורה פשוטה, הדרגתית ונגישה, תוך צמצום הזנה כפולה ושמירה על פרטיות.',tags:['פרטים אישיים','קורות חיים','העדפות תעסוקתיות','ניסיון קודם','מגבלות רלוונטיות','יעדים אישיים']},
+  {step:2,title:'מיפוי יכולות וחסמים',desc:'בניית תמונה רחבה של האדם מעבר לשם התפקיד האחרון שלו.',tags:['מיומנויות מקצועיות','כישורים ניתנים להעברה','פערי ידע','חסמים תעסוקתיים','ניסיון לא פורמלי','פוטנציאל למקצועות סמוכים']},
+  {step:3,title:'המלצות מותאמות',desc:'התאמה חכמה בין פרופיל האדם, משרות, הכשרות ומסלולי התפתחות.',tags:['משרות מתאימות','הכשרות קצרות','השלמת מיומנויות','מקצועות סמוכים','הסבר מדוע הוצעה כל המלצה']},
+  {step:4,title:'הכשרה וליווי',desc:'חיבור בין צורך אמיתי בשוק לבין הכשרה ממוקדת ומדידה.',tags:['המלצה על הכשרה','מעקב התקדמות','זיהוי נשירה','תזכורות','ליווי דיגיטלי ואנושי']},
+  {step:5,title:'חיבור למעסיק',desc:'התאמה איכותית שמבוססת על מיומנויות, זמינות, דרישות והקשר תעסוקתי.',tags:['התאמה לפי Skills','שקיפות על סיבת ההתאמה','משוב מהמעסיק','שיפור איכות ההפניה','זיהוי פערי גיוס']},
+  {step:6,title:'השמה ומעקב',desc:'ההשמה אינה סוף התהליך. נדרש למדוד יציבות, התאמה והצלחת המסלול.',tags:['מעקב לאחר השמה','זיהוי חסמים חוזרים','שיפור המלצות עתידיות','מדידת אפקטיביות הכשרות','למידה ארגונית']}
+];
+
+const kpiData = [
+  {label:'זמן רישום להפניה',value:'4.2',suffix:' ימים',trend:'up',trendText:'שיפור לדוגמה',bar:72,tooltip:'זמן ממוצע מרישום ועד הפניה ראשונה'},
+  {label:'הפניה להשמה',value:'18.5',suffix:' ימים',trend:'up',trendText:'שיפור לדוגמה',bar:65,tooltip:'זמן ממוצע מהפניה ועד השמה'},
+  {label:'השלמה דיגיטלית',value:'72',suffix:'%',trend:'up',trendText:'עלייה לדוגמה',bar:72,tooltip:'אחוז השלמת תהליך דיגיטלי ללא פנייה לנציג'},
+  {label:'תהליכים שנעצרו',value:'127',suffix:'',trend:'down',trendText:'ירידה לדוגמה',bar:35,barColor:'linear-gradient(to left,#f87171,#fca5a5)',tooltip:'תהליכים שנעצרו ודרשו טיפול ידני'},
+  {label:'שביעות רצון',value:'4.1',suffix:'/5',trend:'up',trendText:'עלייה לדוגמה',bar:82,tooltip:'ממוצע שביעות רצון משתמשים'},
+  {label:'זמינות מערכות',value:'96.4',suffix:'%',trend:'up',trendText:'יציב לדוגמה',bar:96,tooltip:'אחוז זמינות המערכות'},
+  {label:'עמידה ב-SLA',value:'88',suffix:'%',trend:'up',trendText:'עלייה לדוגמה',bar:88,tooltip:'אחוז עמידה ב-SLA מול ספקים'},
+  {label:'השלמת הכשרות',value:'61',suffix:'%',trend:'up',trendText:'עלייה לדוגמה',bar:61,tooltip:'שיעור השלמת הכשרות שהומלצו'},
+  {label:'איכות התאמות',value:'3.8',suffix:'/5',trend:'up',trendText:'שיפור לדוגמה',bar:76,tooltip:'ציון איכות התאמת מועמדים'},
+  {label:'עומס ממוצע',value:'43',suffix:' תיקים',trend:'down',trendText:'ירידה לדוגמה',bar:55,tooltip:'עומס ממוצע לפי אזור גיאוגרפי'}
+];
+
+const governanceData = [
+  {title:'צורך ארגוני ברור',detail:'כל יוזמת AI צריכה להיות מונעת על ידי צורך אמיתי ומוגדר של הארגון, לא על ידי טרנד טכנולוגי.'},
+  {title:'ערך מדיד',detail:'יש להגדיר מראש את מדדי ההצלחה ואת הערך הצפוי מהיישום, ולבדוק אותם לאחר ההטמעה.'},
+  {title:'איכות נתונים',detail:'AI מבוסס על נתונים. לפני כל יישום יש לוודא שהנתונים מדויקים, שלמים, עדכניים ומייצגים.'},
+  {title:'הגנת פרטיות',detail:'יש לוודא עמידה בדרישות הגנת הפרטיות, לרבות מזעור נתונים ואנונימיזציה בהיכן שניתן.'},
+  {title:'אבטחת מידע',detail:'כל מערכת AI צריכה לעבור בדיקות אבטחה ולהיות מוגנת מפני גישה לא מורשית ואיומים.'},
+  {title:'שקיפות',detail:'משתמשים צריכים לדעת כאשר הם מקיימים אינטראקציה עם מערכת ממוחשבת ולא עם אדם.'},
+  {title:'הסבריות',detail:'החלטות שמתקבלות בסיוע AI צריכות להיות ניתנות להסבר בשפה פשוטה לאזרח.'},
+  {title:'בקרה אנושית',detail:'יש להבטיח שבני אדם יכולים לעקוף, לתקן ולבטל את פלטי ה-AI בכל עת.'},
+  {title:'בדיקת הטיות',detail:'יש לזהות ולצמצם הטיות בנתוני האימון ובתוצאות, במיוחד כשמדובר בקבוצות אוכלוסייה שונות.'},
+  {title:'אחריות ברורה',detail:'לכל מערכת AI צריך להיות גורם אחראי מוגדר מבחינה ארגונית ומשפטית.'},
+  {title:'פיילוט מוגבל',detail:'יש להתחיל בניסוי מצומצם לפני הרחבה, כדי לבחון את ההשפעה בפועל ולתקן בעיות.'},
+  {title:'יכולת עצירה',detail:'כל מערכת AI צריכה לכלול מנגנון כיבוי ועצירה מהירה אם יתגלו בעיות.'},
+  {title:'מדדי הצלחה',detail:'יש להגדיר מראש כיצד נדע אם היישום הצליח, ולמדוד זאת לאורך זמן.'},
+  {title:'למידה לפני הרחבה',detail:'ממצאי הפיילוט צריכים לכלול לקחים ושיפורים מוגדרים, לפני שמרחיבים את השימוש.'}
+];
+
+// ============================================
+// INIT
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+  lucide.createIcons();
+  initNav();
+  initBackToTop();
+  initReveal();
+  initHeroCanvas();
+  initJourneySteps();
+  initUserTabs();
+  initAiToggle();
+  renderKPI();
+  renderGovernance();
+  initDashboardCharts();
+  setTimeout(()=>{ initCounters(); }, 600);
+  lucide.createIcons();
+});
+
+// ============================================
+// NAV
+// ============================================
+function initNav() {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', ()=>{ navLinks.classList.toggle('open'); });
+  navLinks.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=>{ navLinks.classList.remove('open'); });
+  });
+  const sections = document.querySelectorAll('section[id]');
+  const links = navLinks.querySelectorAll('a');
+  window.addEventListener('scroll', ()=>{
+    let cur = '';
+    sections.forEach(s=>{ if(window.scrollY >= s.offsetTop - 80) cur = s.id; });
+    links.forEach(l=>{ l.classList.toggle('active', l.getAttribute('href') === '#'+cur); });
+  }, {passive:true});
+}
+
+// ============================================
+// BACK TO TOP
+// ============================================
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', ()=>{ btn.classList.toggle('visible', window.scrollY > 400); }, {passive:true});
+  btn.addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); });
+}
+
+// ============================================
+// REVEAL ON SCROLL
+// ============================================
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, {threshold:.1});
+  els.forEach(el=>obs.observe(el));
+}
+
+// ============================================
+// HERO CANVAS ANIMATION
+// ============================================
+function initHeroCanvas() {
+  const canvas = document.getElementById('hero-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = Math.min(520, rect.width);
+    canvas.height = window.innerWidth > 768 ? 400 : 260;
+  }
+  resize();
+  window.addEventListener('resize', ()=>{ resize(); }, {passive:true});
+
+  const nodeData = [
+    {xr:.5, yr:.5, label:'AI', color:'#14b8a6', size:34, pulse:true},
+    {xr:.18, yr:.18, label:'דורש עבודה', color:'#60a5fa', size:24},
+    {xr:.82, yr:.18, label:'מעסיק', color:'#67e8f9', size:24},
+    {xr:.1,  yr:.65, label:'מידע', color:'#a78bfa', size:22},
+    {xr:.9,  yr:.65, label:'הנהלה', color:'#fbbf24', size:22},
+    {xr:.5,  yr:.88, label:'עובד שירות', color:'#86efac', size:24}
+  ];
+  const edges = [[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5],[3,0],[4,0]];
+  const particles = edges.map(e=>({edge:e, t:Math.random(), speed:.003+Math.random()*.003}));
+  let af;
+
+  function gp(n) { return {x:n.xr*canvas.width, y:n.yr*canvas.height}; }
+
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    edges.forEach(([a,b])=>{
+      const pa=gp(nodeData[a]), pb=gp(nodeData[b]);
+      ctx.beginPath(); ctx.moveTo(pa.x,pa.y); ctx.lineTo(pb.x,pb.y);
+      ctx.strokeStyle='rgba(255,255,255,.08)'; ctx.lineWidth=1.5; ctx.stroke();
+    });
+    particles.forEach(p=>{
+      const [a,b]=p.edge, pa=gp(nodeData[a]), pb=gp(nodeData[b]);
+      const x=pa.x+(pb.x-pa.x)*p.t, y=pa.y+(pb.y-pa.y)*p.t;
+      const g=ctx.createRadialGradient(x,y,0,x,y,10);
+      g.addColorStop(0,'rgba(20,184,166,.35)'); g.addColorStop(1,'rgba(20,184,166,0)');
+      ctx.beginPath(); ctx.arc(x,y,10,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      ctx.beginPath(); ctx.arc(x,y,3,0,Math.PI*2); ctx.fillStyle='rgba(94,234,212,.9)'; ctx.fill();
+      p.t+=p.speed; if(p.t>1) p.t=0;
+    });
+    const pulse=(Date.now()%2500)/2500;
+    nodeData.forEach((nd,i)=>{
+      const p=gp(nd);
+      if(nd.pulse){
+        ctx.beginPath(); ctx.arc(p.x,p.y,nd.size+pulse*22,0,Math.PI*2);
+        ctx.strokeStyle=`rgba(20,184,166,${.4-pulse*.4})`; ctx.lineWidth=2; ctx.stroke();
+      }
+      const glow=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,nd.size*2);
+      glow.addColorStop(0,nd.color+'44'); glow.addColorStop(1,nd.color+'00');
+      ctx.beginPath(); ctx.arc(p.x,p.y,nd.size*2,0,Math.PI*2); ctx.fillStyle=glow; ctx.fill();
+      ctx.beginPath(); ctx.arc(p.x,p.y,nd.size,0,Math.PI*2);
+      ctx.fillStyle='rgba(15,28,63,.85)'; ctx.fill();
+      ctx.strokeStyle=nd.color+'cc'; ctx.lineWidth=nd.pulse?2.5:1.8; ctx.stroke();
+      ctx.font=`700 ${nd.pulse?'13':'11'}px Heebo,sans-serif`;
+      ctx.fillStyle=nd.color; ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText(nd.label,p.x,p.y);
+    });
+    if(!document.hidden) af=requestAnimationFrame(draw);
+  }
+  draw();
+  document.addEventListener('visibilitychange',()=>{ if(!document.hidden) draw(); else cancelAnimationFrame(af); });
+}
+
+// ============================================
+// JOURNEY STEPS
+// ============================================
+function initJourneySteps() {
+  const steps = document.querySelectorAll('.journey-step');
+  const detail = document.getElementById('journey-detail');
+  let active = null;
+  steps.forEach(s=>{
+    s.addEventListener('click', ()=>{
+      const num = parseInt(s.dataset.step);
+      if(active === num){ active=null; s.classList.remove('active'); detail.classList.remove('open'); detail.innerHTML=''; return; }
+      steps.forEach(x=>x.classList.remove('active'));
+      s.classList.add('active');
+      active = num;
+      const d = journeyData[num-1];
+      detail.innerHTML = '<h4>' + d.title + '</h4><p>' + d.desc + '</p><div class="step-tags">' +
+        d.tags.map(t=>'<span class="step-tag">'+t+'</span>').join('') + '</div>';
+      detail.classList.add('open');
+    });
+  });
+}
+
+// ============================================
+// USER TABS
+// ============================================
+function initUserTabs() {
+  const tabs = document.querySelectorAll('.users-tab');
+  const cards = document.querySelectorAll('[data-user-card]');
+  tabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      tabs.forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      const val = tab.dataset.user;
+      cards.forEach(c=>{
+        if(val==='all') c.classList.remove('hidden');
+        else c.classList.toggle('hidden', c.dataset.userCard !== val);
+      });
+    });
+  });
+}
+
+// ============================================
+// AI TOGGLE
+// ============================================
+function initAiToggle() {
+  const btn = document.getElementById('ai-toggle');
+  btn.addEventListener('click', ()=>{
+    document.body.classList.toggle('ai-layer');
+    btn.classList.toggle('active');
+  });
+}
+
+// ============================================
+// RENDER KPI
+// ============================================
+function renderKPI() {
+  const grid = document.getElementById('kpi-grid');
+  grid.innerHTML = kpiData.map(k=>`
+    <div class="kpi-card reveal">
+      <div class="kpi-tooltip">${k.tooltip}</div>
+      <div class="kpi-label">${k.label}</div>
+      <div class="kpi-value" data-target="${k.value}" data-suffix="${k.suffix}">0</div>
+      <div class="kpi-trend ${k.trend}">${k.trend==='up'?'&#x2191;':'&#x2193;'} ${k.trendText}</div>
+      <div class="kpi-bar"><div class="kpi-bar-fill" style="width:0%;${k.barColor?'background:'+k.barColor:''}"></div></div>
+    </div>`).join('');
+  // re-observe new elements
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  },{threshold:.1});
+  grid.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+// ============================================
+// ANIMATED COUNTERS
+// ============================================
+function initCounters() {
+  const vals = document.querySelectorAll('[data-target]');
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix||'';
+      const dec = (el.dataset.target.includes('.')) ? 1 : 0;
+      const dur = 1500, steps = 60;
+      let cur = 0, step = 0;
+      const timer = setInterval(()=>{
+        step++;
+        cur = target * (step/steps);
+        el.textContent = (dec?cur.toFixed(1):Math.floor(cur)) + suffix;
+        if(step>=steps){ el.textContent=target.toFixed(dec)+suffix; clearInterval(timer); }
+      }, dur/steps);
+      // also animate bars
+      const bar = el.closest('.kpi-card');
+      if(bar){ const fill=bar.querySelector('.kpi-bar-fill'); if(fill){ const w=kpiData.find(k=>k.label===bar.querySelector('.kpi-label').textContent); if(w) fill.style.width=w.bar+'%'; }}
+      obs.unobserve(el);
+    });
+  },{threshold:.5});
+  vals.forEach(v=>obs.observe(v));
+}
+
+// ============================================
+// GOVERNANCE RENDER
+// ============================================
+function renderGovernance() {
+  const grid = document.getElementById('governance-grid');
+  grid.innerHTML = governanceData.map((g,i)=>`
+    <div class="gov-item reveal" onclick="this.classList.toggle('open')">
+      <div class="gov-header">
+        <div class="gov-check"><i data-lucide="check" style="width:14px;height:14px;stroke:white"></i></div>
+        <div class="gov-title">${g.title}</div>
+        <div class="gov-arrow"><i data-lucide="chevron-down" style="width:18px;height:18px"></i></div>
+      </div>
+      <div class="gov-detail">${g.detail}</div>
+    </div>`).join('');
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  },{threshold:.1});
+  grid.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  lucide.createIcons();
+}
+
+// ============================================
+// DASHBOARD CHARTS
+// ============================================
+function initDashboardCharts() {
+  drawLineChart();
+  drawBarChart();
+  drawRings();
+}
+
+function drawLineChart() {
+  const canvas = document.getElementById('line-chart');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.parentElement.clientWidth - 48;
+  canvas.height = 160;
+  const data = [42,58,51,73,68,84,79,91,88,95,101,112];
+  const labels = ['י','פ','מ','א','מ','י','י','א','ס','א','נ','ד'];
+  const pad = {t:16,r:8,b:32,l:40};
+  const w=canvas.width-pad.l-pad.r, h=canvas.height-pad.t-pad.b;
+  const mx=Math.max(...data), mn=Math.min(...data)-10;
+  function px(i){ return pad.l+i*(w/(data.length-1)); }
+  function py(v){ return pad.t+h-(v-mn)/(mx-mn)*h; }
+  const grad=ctx.createLinearGradient(0,pad.t,0,pad.t+h);
+  grad.addColorStop(0,'rgba(20,184,166,.3)'); grad.addColorStop(1,'rgba(20,184,166,0)');
+  ctx.beginPath(); ctx.moveTo(px(0),py(data[0]));
+  data.forEach((v,i)=>{ if(i>0) ctx.lineTo(px(i),py(v)); });
+  ctx.lineTo(px(data.length-1),pad.t+h); ctx.lineTo(px(0),pad.t+h); ctx.closePath();
+  ctx.fillStyle=grad; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(px(0),py(data[0]));
+  data.forEach((v,i)=>{ if(i>0) ctx.lineTo(px(i),py(v)); });
+  ctx.strokeStyle='#14b8a6'; ctx.lineWidth=2.5; ctx.lineJoin='round'; ctx.stroke();
+  ctx.fillStyle='#64748b'; ctx.font='10px Heebo,sans-serif'; ctx.textAlign='center';
+  labels.forEach((l,i)=>{ ctx.fillText(l,px(i),canvas.height-6); });
+  ctx.textAlign='right'; ctx.font='10px Heebo,sans-serif';
+  [mn,Math.round((mx+mn)/2),mx].forEach(v=>{ ctx.fillText(Math.round(v),pad.l-5,py(v)+3); });
+}
+
+function drawBarChart() {
+  const canvas = document.getElementById('bar-chart');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.parentElement.clientWidth - 48;
+  canvas.height = 160;
+  const labels = ['רישום','מיפוי','המלצה','הכשרה','חיבור','השמה'];
+  const data = [380,290,210,175,130,95];
+  const colors = ['#1e3a8a','#1d4ed8','#0d9488','#14b8a6','#06b6d4','#67e8f9'];
+  const pad = {t:16,r:16,b:32,l:16};
+  const bw=(canvas.width-pad.l-pad.r)/labels.length;
+  const mx=Math.max(...data);
+  const h=canvas.height-pad.t-pad.b;
+  data.forEach((v,i)=>{
+    const bh=v/mx*h;
+    const x=pad.l+i*bw+bw*.15, bWidth=bw*.7;
+    const y=pad.t+h-bh;
+    const g=ctx.createLinearGradient(0,y,0,y+bh);
+    g.addColorStop(0,colors[i]); g.addColorStop(1,colors[i]+'88');
+    ctx.fillStyle=g;
+    const r=4;
+    ctx.beginPath(); ctx.moveTo(x+r,y); ctx.lineTo(x+bWidth-r,y);
+    ctx.arcTo(x+bWidth,y,x+bWidth,y+r,r); ctx.lineTo(x+bWidth,y+bh);
+    ctx.lineTo(x,y+bh); ctx.lineTo(x,y+r);
+    ctx.arcTo(x,y,x+r,y,r); ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#374151'; ctx.font='9px Heebo,sans-serif'; ctx.textAlign='center';
+    ctx.fillText(labels[i],x+bWidth/2,canvas.height-6);
+  });
+}
+
+function drawRings() {
+  const container = document.getElementById('rings-container');
+  if(!container) return;
+  const rings = [
+    {label:'זמינות',value:96,color:'#1e3a8a'},
+    {label:'SLA',value:88,color:'#0d9488'},
+    {label:'שביעות רצון',value:82,color:'#06b6d4'}
+  ];
+  rings.forEach(r=>{
+    const wrap=document.createElement('div');
+    wrap.style.cssText='display:flex;flex-direction:column;align-items:center;gap:.5rem';
+    const canvas=document.createElement('canvas');
+    canvas.width=90; canvas.height=90;
+    const ctx=canvas.getContext('2d');
+    const cx=45,cy=45,rad=35,lw=8,angle=r.value/100*Math.PI*2;
+    ctx.beginPath(); ctx.arc(cx,cy,rad,0,Math.PI*2);
+    ctx.strokeStyle='#f1f5f9'; ctx.lineWidth=lw; ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx,cy,rad,-Math.PI/2,-Math.PI/2+angle);
+    ctx.strokeStyle=r.color; ctx.lineWidth=lw; ctx.lineCap='round'; ctx.stroke();
+    ctx.font='bold 16px Heebo,sans-serif'; ctx.fillStyle='#0f172a';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(r.value+'%',cx,cy);
+    const lbl=document.createElement('div');
+    lbl.style.cssText='font-size:.72rem;font-weight:600;color:#64748b;text-align:center';
+    lbl.textContent=r.label;
+    wrap.appendChild(canvas); wrap.appendChild(lbl);
+    container.appendChild(wrap);
+  });
+}
+</script>
+</body>
+</html>
