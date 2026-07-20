@@ -370,6 +370,33 @@ h2,h3{break-after:avoid}
 .journey-step:focus-visible{outline:3px solid var(--teal-500);outline-offset:4px;border-radius:8px}
 .users-tab:focus-visible{outline:3px solid var(--blue-500);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}.reveal{opacity:1!important;transform:none!important}}
+/* === ACCESSIBILITY WIDGET === */
+.a11y-btn{position:fixed;bottom:2rem;right:2rem;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#1e3a8a,#0d9488);color:white;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.25);z-index:998;transition:.3s ease;font-size:1.4rem}
+.a11y-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(0,0,0,.35)}
+.a11y-btn:focus-visible{outline:3px solid var(--teal-300);outline-offset:3px}
+.a11y-panel{position:fixed;bottom:6rem;right:2rem;background:white;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.18);padding:1.25rem;width:220px;z-index:997;display:none;direction:rtl;border:1px solid var(--gray-100)}
+.a11y-panel.open{display:block;animation:fadeIn .2s ease}
+.a11y-panel-title{font-size:.78rem;font-weight:800;color:var(--blue-800);letter-spacing:.05em;margin-bottom:.9rem;padding-bottom:.6rem;border-bottom:2px solid var(--blue-100)}
+.a11y-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
+.a11y-row-label{font-size:.82rem;font-weight:600;color:var(--dark-3)}
+.a11y-controls{display:flex;gap:.35rem}
+.a11y-control-btn{width:30px;height:30px;border:1.5px solid var(--gray-300);border-radius:8px;background:var(--bg);cursor:pointer;font-size:.9rem;font-weight:700;color:var(--dark-3);display:flex;align-items:center;justify-content:center;transition:.2s ease;font-family:'Heebo',sans-serif}
+.a11y-control-btn:hover{background:var(--blue-100);border-color:var(--blue-500);color:var(--blue-800)}
+.a11y-control-btn.active{background:var(--blue-800);border-color:var(--blue-800);color:white}
+.a11y-toggle{width:100%;padding:.45rem .75rem;border:1.5px solid var(--gray-300);border-radius:8px;background:var(--bg);cursor:pointer;font-size:.82rem;font-weight:600;color:var(--dark-3);text-align:right;font-family:'Heebo',sans-serif;transition:.2s ease;display:flex;align-items:center;gap:.5rem}
+.a11y-toggle:hover{background:var(--blue-100);border-color:var(--blue-500)}
+.a11y-toggle.active{background:var(--blue-800);border-color:var(--blue-800);color:white}
+.a11y-reset{width:100%;margin-top:.75rem;padding:.4rem;border:none;background:var(--gray-100);border-radius:8px;cursor:pointer;font-size:.78rem;font-weight:600;color:var(--gray-500);font-family:'Heebo',sans-serif;transition:.2s ease}
+.a11y-reset:hover{background:var(--gray-300);color:var(--dark)}
+body.a11y-big-text{font-size:19px}
+body.a11y-high-contrast{filter:contrast(1.5)}
+body.a11y-grayscale{filter:grayscale(1)}
+body.a11y-big-text.a11y-high-contrast{filter:contrast(1.5)}
+body.a11y-big-text.a11y-grayscale{filter:grayscale(1)}
+body.a11y-high-contrast.a11y-grayscale{filter:contrast(1.5) grayscale(1)}
+body.a11y-big-text.a11y-high-contrast.a11y-grayscale{filter:contrast(1.5) grayscale(1)}
+body.a11y-highlight-links a{outline:2px solid #0d9488!important;text-decoration:underline!important}
+body.a11y-no-anim *,body.a11y-no-anim *::before,body.a11y-no-anim *::after{animation:none!important;transition:none!important}
 </style>
 </head>
 <body>
@@ -412,6 +439,39 @@ h2,h3{break-after:avoid}
     </div>
   </div>
 </nav>
+
+<!-- ACCESSIBILITY WIDGET -->
+<button class="a11y-btn" id="a11y-btn" aria-label="תפריט נגישות" aria-expanded="false" aria-controls="a11y-panel" title="נגישות">
+  ♿
+</button>
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="אפשרויות נגישות" aria-modal="false">
+  <div class="a11y-panel-title">♿ הגדרות נגישות</div>
+
+  <div class="a11y-row">
+    <span class="a11y-row-label">גודל טקסט</span>
+    <div class="a11y-controls">
+      <button class="a11y-control-btn" id="a11y-text-minus" aria-label="הקטן טקסט" title="הקטן">א-</button>
+      <button class="a11y-control-btn" id="a11y-text-plus" aria-label="הגדל טקסט" title="הגדל">א+</button>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:.45rem">
+    <button class="a11y-toggle" id="a11y-contrast" aria-pressed="false">
+      <span>◑</span> ניגודיות גבוהה
+    </button>
+    <button class="a11y-toggle" id="a11y-grayscale" aria-pressed="false">
+      <span>◐</span> גווני אפור
+    </button>
+    <button class="a11y-toggle" id="a11y-links" aria-pressed="false">
+      <span>🔗</span> הדגש קישורים
+    </button>
+    <button class="a11y-toggle" id="a11y-anim" aria-pressed="false">
+      <span>⏸</span> עצור אנימציות
+    </button>
+  </div>
+
+  <button class="a11y-reset" id="a11y-reset">↺ איפוס הגדרות</button>
+</div>
 
 <button class="back-to-top" id="back-to-top" aria-label="חזרה לראש הדף">
   <i data-lucide="arrow-up" style="width:20px;height:20px" aria-hidden="true"></i>
@@ -1146,6 +1206,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initJourneySteps();
   initUserTabs();
   initAiToggle();
+  initA11y();
   renderKPI();
   renderGovernance();
   initDashboardCharts();
@@ -1326,6 +1387,65 @@ function initAiToggle() {
     btn.classList.toggle('active', active);
     btn.setAttribute('aria-pressed', active);
     btn.setAttribute('aria-label', active ? 'כבה שכבת AI' : 'הפעל שכבת AI');
+  });
+}
+
+// ============================================
+// ACCESSIBILITY WIDGET
+// ============================================
+function initA11y() {
+  const btn = document.getElementById('a11y-btn');
+  const panel = document.getElementById('a11y-panel');
+  const body = document.body;
+  let fontSize = 100;
+
+  btn.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    const open = panel.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+
+  document.addEventListener('click', (e)=>{
+    if(!panel.contains(e.target) && e.target !== btn){
+      panel.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', (e)=>{
+    if(e.key==='Escape'){ panel.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.focus(); }
+  });
+
+  document.getElementById('a11y-text-plus').addEventListener('click', ()=>{
+    if(fontSize < 130){ fontSize += 10; body.style.fontSize = fontSize+'%'; }
+  });
+  document.getElementById('a11y-text-minus').addEventListener('click', ()=>{
+    if(fontSize > 80){ fontSize -= 10; body.style.fontSize = fontSize+'%'; }
+  });
+
+  function toggleA11y(id, cls, label) {
+    const el = document.getElementById(id);
+    el.addEventListener('click', ()=>{
+      const on = body.classList.toggle(cls);
+      el.classList.toggle('active', on);
+      el.setAttribute('aria-pressed', on);
+    });
+  }
+
+  toggleA11y('a11y-contrast', 'a11y-high-contrast');
+  toggleA11y('a11y-grayscale', 'a11y-grayscale');
+  toggleA11y('a11y-links',    'a11y-highlight-links');
+  toggleA11y('a11y-anim',     'a11y-no-anim');
+
+  document.getElementById('a11y-reset').addEventListener('click', ()=>{
+    fontSize = 100;
+    body.style.fontSize = '';
+    ['a11y-high-contrast','a11y-grayscale','a11y-highlight-links','a11y-no-anim'].forEach(c=>body.classList.remove(c));
+    ['a11y-contrast','a11y-grayscale','a11y-links','a11y-anim'].forEach(id=>{
+      const el = document.getElementById(id);
+      el.classList.remove('active');
+      el.setAttribute('aria-pressed','false');
+    });
   });
 }
 
