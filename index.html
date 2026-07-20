@@ -228,7 +228,7 @@ body.ai-layer .ai-layer-indicator{display:block}
 }
 @media(max-width:900px){
 .hero-inner{grid-template-columns:1fr;gap:2rem}
-.hero-visual{order:-1}
+.hero-visual{order:1}
 #hero-canvas{height:260px}
 .users-grid{grid-template-columns:1fr}
 .horizons-grid{grid-template-columns:1fr}
@@ -322,7 +322,8 @@ h2,h3{break-after:avoid}
 .checklist-wrap{display:grid;grid-template-columns:1fr;gap:2rem;align-items:start}.checklist-side{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
 .checklist-note{background:linear-gradient(135deg,rgba(30,58,138,.06),rgba(37,99,235,.04));border:1px solid var(--blue-100);border-radius:12px;padding:1.25rem 1.5rem;font-size:.85rem;color:var(--dark-3);line-height:1.7;margin-bottom:2rem}
 .checklist-note strong{color:var(--blue-800)}
-.checklist-table{width:100%;border-collapse:collapse}
+.checklist-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.checklist-table{width:100%;border-collapse:collapse;min-width:480px}
 .checklist-table th{padding:.75rem 1rem;font-size:.78rem;font-weight:700;color:white;text-align:right}
 .checklist-table th:first-child{background:var(--blue-800);border-radius:8px 0 0 0}
 .checklist-table th:last-child{background:var(--teal-700);border-radius:0 8px 0 0}
@@ -681,6 +682,7 @@ body.a11y-no-anim *,body.a11y-no-anim *::before,body.a11y-no-anim *::after{anima
     </div>
     <div class="checklist-wrap">
       <div class="reveal">
+        <div class="checklist-table-wrap">
         <table class="checklist-table">
           <thead>
             <tr>
@@ -747,6 +749,7 @@ body.a11y-no-anim *,body.a11y-no-anim *::before,body.a11y-no-anim *::after{anima
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
       <div class="checklist-side reveal">
         <div class="score-bar" style="margin-top:0">
