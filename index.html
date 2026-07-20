@@ -361,15 +361,26 @@ h2,h3{break-after:avoid}
 .contact-card-value{font-size:1.05rem;font-weight:700;color:white;direction:ltr}
 @media(max-width:900px){.adv-grid{grid-template-columns:repeat(2,1fr)}.checklist-wrap{grid-template-columns:1fr}.checklist-side{grid-template-columns:1fr}.approaches-grid{grid-template-columns:1fr}.contact-cards{flex-direction:column;align-items:center}}
 @media(max-width:600px){.adv-grid{grid-template-columns:1fr}.checklist-table td,.checklist-table th{padding:.6rem .65rem;font-size:.78rem}.check-match{flex-direction:column;gap:.25rem}.checklist-note{font-size:.78rem}}
+/* === ACCESSIBILITY === */
+.skip-link{position:absolute;top:-100px;right:0;background:var(--blue-800);color:white;padding:.75rem 1.5rem;font-size:1rem;font-weight:700;text-decoration:none;border-radius:0 0 8px 0;z-index:9999;transition:top .2s ease;white-space:nowrap}
+.skip-link:focus{top:0;outline:3px solid var(--teal-500);outline-offset:2px}
+:focus-visible{outline:3px solid var(--teal-500);outline-offset:3px;border-radius:4px}
+.nav-links a:focus-visible{outline:2px solid var(--teal-300);outline-offset:2px}
+.contact-card:focus-visible{outline:3px solid var(--teal-300);outline-offset:3px}
+.journey-step:focus-visible{outline:3px solid var(--teal-500);outline-offset:4px;border-radius:8px}
+.users-tab:focus-visible{outline:3px solid var(--blue-500);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}.reveal{opacity:1!important;transform:none!important}}
 </style>
 </head>
 <body>
 
-<div class="ai-layer-indicator">מצב שכבת AI פעיל - איזורים רלוונטיים מודגשים</div>
+<a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
 
-<nav class="nav" id="main-nav">
+<div class="ai-layer-indicator" role="status" aria-live="polite">מצב שכבת AI פעיל - איזורים רלוונטיים מודגשים</div>
+
+<nav class="nav" id="main-nav" role="navigation" aria-label="ניווט ראשי">
   <div class="nav-inner">
-    <a href="#hero" class="nav-brand">
+    <a href="#hero" class="nav-brand" aria-label="ברק רוזנפלד - חזרה לראש הדף">
       <div>
         <div class="nav-brand-name">ברק רוזנפלד</div>
         <div class="nav-brand-title">מועמד: מנהל אגף בכיר טכנולוגיות דיגיטליות ומידע</div>
@@ -387,24 +398,26 @@ h2,h3{break-after:avoid}
       <li><a href="#contact">צור קשר</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="btn-ai-toggle" id="ai-toggle">
-        <i data-lucide="zap" style="width:14px;height:14px"></i>
+      <button class="btn-ai-toggle" id="ai-toggle" aria-pressed="false" aria-label="הפעל שכבת AI">
+        <i data-lucide="zap" style="width:14px;height:14px" aria-hidden="true"></i>
         <span>שכבת AI</span>
       </button>
-      <button class="btn-print" onclick="window.print()">
-        <i data-lucide="printer" style="width:14px;height:14px"></i>
+      <button class="btn-print" onclick="window.print()" aria-label="הדפס דף">
+        <i data-lucide="printer" style="width:14px;height:14px" aria-hidden="true"></i>
         <span>הדפסה</span>
       </button>
-      <button class="hamburger" id="hamburger" aria-label="תפריט">
-        <i data-lucide="menu" style="width:22px;height:22px"></i>
+      <button class="hamburger" id="hamburger" aria-label="פתח תפריט ניווט" aria-expanded="false" aria-controls="nav-links">
+        <i data-lucide="menu" style="width:22px;height:22px" aria-hidden="true"></i>
       </button>
     </div>
   </div>
 </nav>
 
-<button class="back-to-top" id="back-to-top" aria-label="חזרה לראש">
-  <i data-lucide="arrow-up" style="width:20px;height:20px"></i>
+<button class="back-to-top" id="back-to-top" aria-label="חזרה לראש הדף">
+  <i data-lucide="arrow-up" style="width:20px;height:20px" aria-hidden="true"></i>
 </button>
+
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -770,13 +783,13 @@ h2,h3{break-after:avoid}
       <p class="section-subtitle">כדי לשפר שירות דיגיטלי, צריך קודם להבין את המסע כולו. לחצו על כל שלב לפרטים.</p>
     </div>
     <div class="reveal">
-      <div class="journey-flow" id="journey-flow">
-        <div class="journey-step ai-relevant" data-step="1"><div class="step-number">1</div><div class="step-label">רישום והיכרות</div></div>
-        <div class="journey-step ai-relevant" data-step="2"><div class="step-number">2</div><div class="step-label">מיפוי יכולות וחסמים</div></div>
-        <div class="journey-step ai-relevant" data-step="3"><div class="step-number">3</div><div class="step-label">המלצות מותאמות</div></div>
-        <div class="journey-step ai-relevant" data-step="4"><div class="step-number">4</div><div class="step-label">הכשרה וליווי</div></div>
-        <div class="journey-step ai-relevant" data-step="5"><div class="step-number">5</div><div class="step-label">חיבור למעסיק</div></div>
-        <div class="journey-step ai-relevant" data-step="6"><div class="step-number">6</div><div class="step-label">השמה ומעקב</div></div>
+      <div class="journey-flow" id="journey-flow" role="list" aria-label="שלבי המסע התעסוקתי">
+        <div class="journey-step ai-relevant" data-step="1" role="listitem button" tabindex="0" aria-label="שלב 1: רישום והיכרות — לחץ לפרטים"><div class="step-number" aria-hidden="true">1</div><div class="step-label">רישום והיכרות</div></div>
+        <div class="journey-step ai-relevant" data-step="2" role="listitem button" tabindex="0" aria-label="שלב 2: מיפוי יכולות וחסמים — לחץ לפרטים"><div class="step-number" aria-hidden="true">2</div><div class="step-label">מיפוי יכולות וחסמים</div></div>
+        <div class="journey-step ai-relevant" data-step="3" role="listitem button" tabindex="0" aria-label="שלב 3: המלצות מותאמות — לחץ לפרטים"><div class="step-number" aria-hidden="true">3</div><div class="step-label">המלצות מותאמות</div></div>
+        <div class="journey-step ai-relevant" data-step="4" role="listitem button" tabindex="0" aria-label="שלב 4: הכשרה וליווי — לחץ לפרטים"><div class="step-number" aria-hidden="true">4</div><div class="step-label">הכשרה וליווי</div></div>
+        <div class="journey-step ai-relevant" data-step="5" role="listitem button" tabindex="0" aria-label="שלב 5: חיבור למעסיק — לחץ לפרטים"><div class="step-number" aria-hidden="true">5</div><div class="step-label">חיבור למעסיק</div></div>
+        <div class="journey-step ai-relevant" data-step="6" role="listitem button" tabindex="0" aria-label="שלב 6: השמה ומעקב — לחץ לפרטים"><div class="step-number" aria-hidden="true">6</div><div class="step-label">השמה ומעקב</div></div>
       </div>
       <div id="journey-detail"></div>
     </div>
@@ -794,11 +807,11 @@ h2,h3{break-after:avoid}
       <p class="section-subtitle">ממשקי הטכנולוגיה של שירות התעסוקה נוגעים בשלוש קבוצות שונות לחלוטין. כל אחת דורשת חשיבה עצמאית.</p>
     </div>
     <div class="users-tabs-wrap reveal">
-      <div class="users-tabs">
-        <button class="users-tab active" data-user="all">כולם</button>
-        <button class="users-tab" data-user="seeker">דורש עבודה</button>
-        <button class="users-tab" data-user="worker">עובד שירות</button>
-        <button class="users-tab" data-user="employer">מעסיק</button>
+      <div class="users-tabs" role="tablist" aria-label="סינון לפי קבוצת משתמשים">
+        <button class="users-tab active" data-user="all" role="tab" aria-selected="true">כולם</button>
+        <button class="users-tab" data-user="seeker" role="tab" aria-selected="false">דורש עבודה</button>
+        <button class="users-tab" data-user="worker" role="tab" aria-selected="false">עובד שירות</button>
+        <button class="users-tab" data-user="employer" role="tab" aria-selected="false">מעסיק</button>
       </div>
     </div>
     <div class="users-grid">
@@ -1055,13 +1068,13 @@ h2,h3{break-after:avoid}
         <p class="contact-sub">אשמח לשיח מקצועי, לשאלות נוספות, או לכל פרט שיעזור לוועדה לקבל החלטה מושכלת</p>
       </div>
       <div class="contact-cards reveal">
-        <a href="mailto:barak2rozenfeld@gmail.com" class="contact-card">
-          <div class="contact-card-icon"><i data-lucide="mail" style="width:22px;height:22px"></i></div>
+        <a href="mailto:barak2rozenfeld@gmail.com" class="contact-card" aria-label="שלח אימייל לברק רוזנפלד: barak2rozenfeld@gmail.com">
+          <div class="contact-card-icon" aria-hidden="true"><i data-lucide="mail" style="width:22px;height:22px" aria-hidden="true"></i></div>
           <div class="contact-card-label">אימייל</div>
           <div class="contact-card-value">barak2rozenfeld@gmail.com</div>
         </a>
-        <a href="tel:0535316043" class="contact-card">
-          <div class="contact-card-icon"><i data-lucide="phone" style="width:22px;height:22px"></i></div>
+        <a href="tel:0535316043" class="contact-card" aria-label="התקשר לברק רוזנפלד: 053-531-6043">
+          <div class="contact-card-icon" aria-hidden="true"><i data-lucide="phone" style="width:22px;height:22px" aria-hidden="true"></i></div>
           <div class="contact-card-label">טלפון</div>
           <div class="contact-card-value" dir="ltr">053-531-6043</div>
         </a>
@@ -1070,7 +1083,9 @@ h2,h3{break-after:avoid}
     </div>
   </div>
 </section>
-<footer>
+</main>
+
+<footer role="contentinfo">
   <div class="footer-name">ברק רוזנפלד</div>
   <div class="footer-title">מועמד לתפקיד מנהל אגף בכיר טכנולוגיות דיגיטליות ומידע</div>
   <div class="footer-tagline">תפיסת שירות תעסוקתי דיגיטלי, מחובר וחכם</div>
@@ -1144,9 +1159,17 @@ document.addEventListener('DOMContentLoaded', function() {
 function initNav() {
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
-  hamburger.addEventListener('click', ()=>{ navLinks.classList.toggle('open'); });
+  hamburger.addEventListener('click', ()=>{
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    hamburger.setAttribute('aria-label', isOpen ? 'סגור תפריט ניווט' : 'פתח תפריט ניווט');
+  });
   navLinks.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click', ()=>{ navLinks.classList.remove('open'); });
+    a.addEventListener('click', ()=>{
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'פתח תפריט ניווט');
+    });
   });
   const sections = document.querySelectorAll('section[id]');
   const links = navLinks.querySelectorAll('a');
@@ -1252,17 +1275,23 @@ function initJourneySteps() {
   const steps = document.querySelectorAll('.journey-step');
   const detail = document.getElementById('journey-detail');
   let active = null;
+  function activateStep(s) {
+    const num = parseInt(s.dataset.step);
+    if(active === num){ active=null; s.classList.remove('active'); s.setAttribute('aria-expanded','false'); detail.classList.remove('open'); detail.innerHTML=''; return; }
+    steps.forEach(x=>{ x.classList.remove('active'); x.setAttribute('aria-expanded','false'); });
+    s.classList.add('active');
+    s.setAttribute('aria-expanded','true');
+    active = num;
+    const d = journeyData[num-1];
+    detail.innerHTML = '<h4>' + d.title + '</h4><p>' + d.desc + '</p><div class="step-tags">' +
+      d.tags.map(t=>'<span class="step-tag">'+t+'</span>').join('') + '</div>';
+    detail.classList.add('open');
+  }
   steps.forEach(s=>{
-    s.addEventListener('click', ()=>{
-      const num = parseInt(s.dataset.step);
-      if(active === num){ active=null; s.classList.remove('active'); detail.classList.remove('open'); detail.innerHTML=''; return; }
-      steps.forEach(x=>x.classList.remove('active'));
-      s.classList.add('active');
-      active = num;
-      const d = journeyData[num-1];
-      detail.innerHTML = '<h4>' + d.title + '</h4><p>' + d.desc + '</p><div class="step-tags">' +
-        d.tags.map(t=>'<span class="step-tag">'+t+'</span>').join('') + '</div>';
-      detail.classList.add('open');
+    s.setAttribute('aria-expanded','false');
+    s.addEventListener('click', ()=>activateStep(s));
+    s.addEventListener('keydown', e=>{
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activateStep(s); }
     });
   });
 }
@@ -1275,8 +1304,9 @@ function initUserTabs() {
   const cards = document.querySelectorAll('[data-user-card]');
   tabs.forEach(tab=>{
     tab.addEventListener('click', ()=>{
-      tabs.forEach(t=>t.classList.remove('active'));
+      tabs.forEach(t=>{ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
       tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
       const val = tab.dataset.user;
       cards.forEach(c=>{
         if(val==='all') c.classList.remove('hidden');
@@ -1292,8 +1322,10 @@ function initUserTabs() {
 function initAiToggle() {
   const btn = document.getElementById('ai-toggle');
   btn.addEventListener('click', ()=>{
-    document.body.classList.toggle('ai-layer');
-    btn.classList.toggle('active');
+    const active = document.body.classList.toggle('ai-layer');
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', active);
+    btn.setAttribute('aria-label', active ? 'כבה שכבת AI' : 'הפעל שכבת AI');
   });
 }
 
