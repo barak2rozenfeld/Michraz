@@ -319,7 +319,7 @@ h2,h3{break-after:avoid}
 .adv-badge{display:inline-block;background:linear-gradient(135deg,rgba(13,148,136,.4),rgba(6,182,212,.3));border:1px solid rgba(94,234,212,.3);color:var(--teal-300);font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:50px;margin-top:.5rem}
 /* === CHECKLIST === */
 .checklist-section{background:white}
-.checklist-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.checklist-wrap{display:grid;grid-template-columns:1fr;gap:2rem;align-items:start}.checklist-side{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
 .checklist-note{background:linear-gradient(135deg,rgba(30,58,138,.06),rgba(37,99,235,.04));border:1px solid var(--blue-100);border-radius:12px;padding:1.25rem 1.5rem;font-size:.85rem;color:var(--dark-3);line-height:1.7;margin-bottom:2rem}
 .checklist-note strong{color:var(--blue-800)}
 .checklist-table{width:100%;border-collapse:collapse}
@@ -359,7 +359,7 @@ h2,h3{break-after:avoid}
 .contact-card-icon svg{stroke:white}
 .contact-card-label{font-size:.72rem;color:var(--teal-300);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
 .contact-card-value{font-size:1.05rem;font-weight:700;color:white;direction:ltr}
-@media(max-width:900px){.adv-grid{grid-template-columns:repeat(2,1fr)}.checklist-wrap{grid-template-columns:1fr}.approaches-grid{grid-template-columns:1fr}.contact-cards{flex-direction:column;align-items:center}}
+@media(max-width:900px){.adv-grid{grid-template-columns:repeat(2,1fr)}.checklist-wrap{grid-template-columns:1fr}.checklist-side{grid-template-columns:1fr}.approaches-grid{grid-template-columns:1fr}.contact-cards{flex-direction:column;align-items:center}}
 @media(max-width:600px){.adv-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -617,46 +617,70 @@ h2,h3{break-after:avoid}
           </thead>
           <tbody>
             <tr>
-              <td class="check-req">תואר ראשון במערכות מידע / מדעי מחשב / הנדסה</td>
-              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>תואר ראשון, מסמכים מצורפים</span></td>
+              <td class="check-req">תואר ראשון במערכות מידע / מדעי מחשב / הנדסת מחשבים / מתמטיקה ומדעי המחשב / הנדסת תעשייה וניהול במסלול מערכות מידע או הנדסת תוכנה</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>תואר ראשון — מסמכים מצורפים להגשה</span></td>
             </tr>
             <tr>
-              <td class="check-req">7 שנות ניסיון בתחום מערכות מידע, מתוכן 5 שנות ניהול צוות רב-תחומי (תשתיות, פיתוח, סיסטם) ובניהול תקציב פרויקטים</td>
-              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span><span class="check-exceed">15+ שנות ניסיון</span>, <span class="check-exceed">8 שנות ניהול</span> צוותי פיתוח + תשתיות + חומרה, כולל ניהול תקציב שוטף ורכש</span></td>
+              <td class="check-req">ניסיון מקצועי בתחום מערכות מידע, מתוכן ניסיון בניהול צוות עובדים מקצועי מדיסציפלינות שונות (תשתיות, עיצוב, פיתוח, סיסטם) ובניהול תקציב פרויקטים בתחום מערכות מידע ומחשוב בתשתית טכנולוגית מודרנית</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניסיון מוכח בניהול צוותי פיתוח, תשתיות וחומרה מדיסציפלינות שונות, כולל ניהול תקציב שוטף ורכש</span></td>
             </tr>
             <tr>
-              <td class="check-req">ניסיון בסיסי נתונים Oracle / Microsoft</td>
-              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניסיון עם בסיסי נתונים רלציוניים ומבוזרים</span></td>
+              <td class="check-req">היכרות טובה של מערכות ממוחשבות, יכולת עבודה שיטתית</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>גישה שיטתית ומסודרת, ניסיון רחב עם מערכות ממוחשבות בסביבות ייצור</span></td>
             </tr>
             <tr>
-              <td class="check-req">ניסיון עבודה מול ספקים ומיקור חוץ</td>
-              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניהול ספקים, מו"מ, ובקרת חוזים</span></td>
+              <td class="check-req">הכנת תכניות עבודה</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניסיון בבניית תכניות עבודה, לוחות זמנים ותקציבים לפרויקטים טכנולוגיים</span></td>
             </tr>
             <tr>
-              <td class="check-req">כתיבת מפרטים להצעות מחיר</td>
-              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניסיון בכתיבת RFP ומפרטים טכניים</span></td>
+              <td class="check-req">ניסיון בפיתוח בסביבת בסיס נתונים אורקל / מייקרוסופט</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניסיון עם בסיסי נתונים רלציוניים ומבוזרים, כולל סביבות Microsoft</span></td>
             </tr>
             <tr>
-              <td class="check-req">ניסיון במערכות מידע גדולות ומבוזרות</td>
-              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>פיתוח, תחזוקה והטמעה בסביבות מורכבות</span></td>
+              <td class="check-req">ניסיון עבודה מול ספקי מיקור חוץ, יכולת לנהל מו"מ</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניהול ספקים חיצוניים, ניהול מו"מ, בקרת ביצוע חוזים</span></td>
             </tr>
             <tr>
-              <td class="check-req">ניסיון הטמעת מערכות</td>
-              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>הטמעת מערכות מידע בארגונים מורכבים</span></td>
+              <td class="check-req">ניסיון מוכח בכתיבת מפרטים להצעות מחיר לספקי תשתית / תוכנה וחומרה</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניסיון בכתיבת RFP ומפרטים טכניים מפורטים לספקים</span></td>
             </tr>
             <tr>
-              <td class="check-req">ניהול צוותי עבודה חוצי-ארגון</td>
-              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ממשקים בין יחידות, ספקים ובעלי עניין</span></td>
+              <td class="check-req">ניסיון בפיתוח ובתחזוקה של מערכות מידע גדולות ומבוזרות</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>פיתוח, תחזוקה והטמעה של מערכות מידע בסביבות מורכבות ומבוזרות</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">כושר תכנון וראייה מערכתית</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ראייה ארגונית רחבה, חיבור בין מטרות ניהוליות, צרכי שטח ותשתית טכנולוגית</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">תודעת שירות גבוהה</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>גישה ממוקדת-לקוח, מציאת פתרונות מעשיים לצרכי השטח</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">ניסיון בניהול ובהובלת צוותי עבודה חוצי ארגון</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניהול ממשקים בין יחידות ארגוניות, ספקים חיצוניים ובעלי עניין מגוונים</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">ניסיון בהטמעת מערכות</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>הטמעת מערכות מידע בארגונים מורכבים, כולל הדרכה והסבת משתמשים</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">יכולת לימוד עצמי ויכולת מוכחות בקריאת ספרות מקצועית בשפה האנגלית</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>עדכון שוטף בתוכן מקצועי באנגלית, לימוד עצמאי של טכנולוגיות ומגמות חדשות</span></td>
+            </tr>
+            <tr>
+              <td class="check-req">יכולת ניסוח גבוהה בכתב ובעל פה</td>
+              <td class="check-match"><i data-lucide="check-circle-2" style="width:16px;height:16px;stroke:#0d9488;flex-shrink:0;margin-top:1px"></i><span>ניסיון בכתיבת מסמכים מקצועיים, מצגות להנהלה ותקשורת עם בעלי עניין מגוונים</span></td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div class="reveal">
-        <div class="score-bar">
-          <div class="score-num">8/8</div>
-          <div class="score-label">עומד בכל דרישות הסף והדרישות הנוספות</div>
+      <div class="checklist-side reveal">
+        <div class="score-bar" style="margin-top:0">
+          <i data-lucide="check-circle-2" style="width:3rem;height:3rem;stroke:#0d9488;display:block;margin:0 auto .75rem"></i>
+          <div class="score-label" style="font-size:1rem;font-weight:800;color:var(--teal-700)">עומד בכל דרישות הסף והדרישות הנוספות</div>
         </div>
-        <div style="margin-top:1.5rem;padding:1.5rem;background:linear-gradient(135deg,rgba(30,58,138,.06),rgba(37,99,235,.04));border-radius:12px;border:1px solid var(--blue-100)">
+        <div style="padding:1.5rem;background:linear-gradient(135deg,rgba(30,58,138,.06),rgba(37,99,235,.04));border-radius:12px;border:1px solid var(--blue-100)">
           <h4 style="font-size:1rem;font-weight:800;color:var(--blue-800);margin-bottom:.4rem">נקודות שמזהה מניסיוני כחיוניות לתפקיד</h4>
           <p style="font-size:.75rem;color:var(--gray-500);margin-bottom:1rem;line-height:1.5">אלו אינן דרישות כתובות במכרז. אלו תובנות שצברתי מניסיון ניהולי שרלוונטיות מאוד לתפקיד זה.</p>
           <div style="display:flex;flex-direction:column;gap:.85rem">
