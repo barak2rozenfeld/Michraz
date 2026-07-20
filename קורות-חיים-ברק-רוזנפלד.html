@@ -2,728 +2,487 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>קורות חיים — ברק רוזנפלד</title>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --blue: #1e3a8a;
-    --blue-light: #dbeafe;
-    --teal: #0d9488;
-    --teal-light: #ccfbf1;
-    --dark: #0f172a;
-    --gray: #475569;
-    --gray-light: #f1f5f9;
-    --border: #e2e8f0;
-    --white: #ffffff;
-  }
+:root {
+  --blue: #1a3460;
+  --blue-mid: #2d5899;
+  --teal: #0b7a6e;
+  --dark: #1a1a2e;
+  --gray: #4a5568;
+  --gray-mid: #718096;
+  --light: #f7f8fa;
+  --border: #dde3ed;
+  --line: #c5cfe0;
+}
 
-  body {
-    font-family: 'Heebo', Arial, sans-serif;
-    font-size: 10.5pt;
-    color: var(--dark);
-    background: var(--white);
-    line-height: 1.55;
-    direction: rtl;
-    text-align: right;
-  }
+html, body { width: 210mm; }
 
-  /* ===== PRINT BUTTON ===== */
-  .print-bar {
-    background: var(--blue);
-    color: white;
-    padding: .75rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    font-size: .875rem;
-  }
-  .print-bar span { opacity: .8; }
-  .btn-print {
-    background: var(--teal);
-    color: white;
-    border: none;
-    padding: .4rem 1.25rem;
-    border-radius: 4px;
-    font-family: 'Heebo', sans-serif;
-    font-size: .875rem;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  .btn-print:hover { opacity: .85; }
+body {
+  font-family: 'Heebo', Arial, sans-serif;
+  font-size: 8.8pt;
+  color: var(--dark);
+  background: white;
+  line-height: 1.45;
+  direction: rtl;
+  text-align: right;
+}
 
-  /* ===== PAGE ===== */
-  .page {
-    max-width: 210mm;
-    margin: 1.5rem auto;
-    background: white;
-    box-shadow: 0 1px 16px rgba(0,0,0,.12);
-    padding: 0;
-  }
+/* ===== PRINT BUTTON (screen only) ===== */
+.screen-only {
+  background: var(--blue);
+  color: white;
+  padding: .6rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 8.5pt;
+}
+.btn-pdf {
+  background: var(--teal);
+  color: white;
+  border: none;
+  padding: .35rem 1rem;
+  border-radius: 3px;
+  font-family: 'Heebo', sans-serif;
+  font-size: 8.5pt;
+  font-weight: 700;
+  cursor: pointer;
+}
 
-  /* ===== HEADER ===== */
-  .cv-header {
-    background: linear-gradient(135deg, var(--blue) 0%, #1d4ed8 100%);
-    color: white;
-    padding: 2rem 2.5rem 1.75rem;
-    position: relative;
-  }
-  .cv-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0; right: 0; left: 0;
-    height: 4px;
-    background: linear-gradient(to left, var(--teal), #06b6d4);
-  }
-  .header-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 2rem;
-    margin-bottom: 1.25rem;
-  }
-  .cv-name {
-    font-size: 28pt;
-    font-weight: 800;
-    letter-spacing: -.5px;
-    line-height: 1.1;
-    color: white;
-  }
-  .cv-title {
-    font-size: 12pt;
-    font-weight: 500;
-    color: rgba(255,255,255,.85);
-    margin-top: .35rem;
-  }
-  .cv-contact {
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
-    text-align: left;
-    font-size: 9.5pt;
-    color: rgba(255,255,255,.85);
-  }
-  .cv-contact a { color: rgba(255,255,255,.9); text-decoration: none; }
-  .tender-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    background: rgba(255,255,255,.13);
-    border: 1px solid rgba(255,255,255,.28);
-    border-radius: 4px;
-    padding: .4rem 1rem;
-    font-size: 9.5pt;
-    font-weight: 700;
-    color: rgba(255,255,255,.95);
-  }
-  .header-summary {
-    font-size: 10pt;
-    color: rgba(255,255,255,.82);
-    line-height: 1.65;
-    max-width: 680px;
-    border-top: 1px solid rgba(255,255,255,.18);
-    padding-top: 1rem;
-  }
+/* ===== LAYOUT ===== */
+.cv {
+  width: 210mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
 
-  /* ===== BODY ===== */
-  .cv-body {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 0;
-    align-items: start;
-  }
+/* ===== HEADER ===== */
+.cv-head {
+  background: var(--blue);
+  color: white;
+  padding: 1.1rem 1.6rem .95rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+.head-left {}
+.cv-name {
+  font-size: 22pt;
+  font-weight: 800;
+  letter-spacing: -.3px;
+  line-height: 1;
+  margin-bottom: .25rem;
+}
+.cv-tagline {
+  font-size: 9pt;
+  font-weight: 400;
+  color: rgba(255,255,255,.82);
+  line-height: 1.4;
+}
+.head-right {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  padding-top: .2rem;
+}
+.contact-item {
+  font-size: 8.5pt;
+  color: rgba(255,255,255,.88);
+  direction: ltr;
+  text-align: left;
+}
+.contact-item a { color: inherit; text-decoration: none; }
 
-  /* ===== SIDEBAR ===== */
-  .sidebar {
-    background: var(--gray-light);
-    border-left: 1px solid var(--border);
-    padding: 1.75rem 1.5rem;
-    height: 100%;
-  }
-  .sidebar-section { margin-bottom: 1.75rem; }
-  .sidebar-title {
-    font-size: 8pt;
-    font-weight: 800;
-    color: var(--blue);
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    border-bottom: 2px solid var(--blue);
-    padding-bottom: .3rem;
-    margin-bottom: .85rem;
-  }
+/* Accent line under header */
+.cv-head-line {
+  height: 3px;
+  background: linear-gradient(to left, var(--teal), #38b2ac);
+  flex-shrink: 0;
+}
 
-  /* Skills */
-  .skill-category { margin-bottom: 1rem; }
-  .skill-cat-name {
-    font-size: 9pt;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: .35rem;
-  }
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .3rem;
-  }
-  .skill-tag {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    font-size: 8pt;
-    padding: .15rem .5rem;
-    color: var(--gray);
-    font-weight: 500;
-  }
-  .skill-tag.highlight {
-    background: var(--teal-light);
-    border-color: var(--teal);
-    color: var(--teal);
-    font-weight: 700;
-  }
+/* ===== BODY: two columns ===== */
+.cv-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
 
-  /* Languages */
-  .lang-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 9.5pt;
-    margin-bottom: .4rem;
-  }
-  .lang-name { font-weight: 600; color: var(--dark); }
-  .lang-level { font-size: 8.5pt; color: var(--gray); }
+/* ===== SIDEBAR ===== */
+.cv-side {
+  width: 62mm;
+  flex-shrink: 0;
+  background: var(--light);
+  border-left: 1px solid var(--border);
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+}
 
-  /* Tender checklist */
-  .checklist-item {
-    display: flex;
-    align-items: flex-start;
-    gap: .4rem;
-    font-size: 8.5pt;
-    color: var(--dark);
-    margin-bottom: .45rem;
-    line-height: 1.45;
-  }
-  .check-icon {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--teal);
-    flex-shrink: 0;
-    margin-top: 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 9px;
-    font-weight: 800;
-  }
-  .check-exceed { color: var(--blue); font-weight: 700; }
+.s-block {}
+.s-title {
+  font-size: 6.8pt;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid var(--blue);
+  padding-bottom: .2rem;
+  margin-bottom: .55rem;
+}
 
-  /* Stats */
-  .stat-row {
-    display: flex;
-    gap: .75rem;
-    margin-bottom: .6rem;
-    align-items: center;
-  }
-  .stat-num {
-    font-size: 22pt;
-    font-weight: 900;
-    color: var(--blue);
-    line-height: 1;
-    min-width: 48px;
-  }
-  .stat-desc { font-size: 8.5pt; color: var(--gray); line-height: 1.35; }
+/* Skill groups */
+.skill-group { margin-bottom: .5rem; }
+.skill-group-name {
+  font-size: 7.8pt;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: .25rem;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .2rem;
+}
+.st {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  font-size: 7.2pt;
+  padding: .1rem .4rem;
+  color: var(--gray);
+}
+.st.hi {
+  background: #e6f4f2;
+  border-color: var(--teal);
+  color: var(--teal);
+  font-weight: 600;
+}
 
-  /* ===== MAIN CONTENT ===== */
-  .main-content {
-    padding: 1.75rem 2rem 1.75rem 1.5rem;
-  }
-  .main-section { margin-bottom: 1.75rem; }
-  .section-title {
-    font-size: 10.5pt;
-    font-weight: 800;
-    color: var(--blue);
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    border-bottom: 2px solid var(--blue);
-    padding-bottom: .3rem;
-    margin-bottom: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-  }
-  .section-title::before {
-    content: '';
-    width: 6px;
-    height: 18px;
-    background: var(--teal);
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
+/* Lang */
+.lang-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  margin-bottom: .3rem;
+  color: var(--dark);
+}
+.lang-item span:last-child { color: var(--gray-mid); font-size: 7.5pt; }
 
-  /* Job entry */
-  .job { margin-bottom: 1.35rem; padding-bottom: 1.35rem; border-bottom: 1px solid var(--border); }
-  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+/* Soft skills bullets */
+.soft-item {
+  font-size: 7.8pt;
+  color: var(--gray);
+  margin-bottom: .28rem;
+  padding-right: .7rem;
+  position: relative;
+  line-height: 1.4;
+}
+.soft-item::before {
+  content: '◆';
+  position: absolute;
+  right: 0;
+  color: var(--teal);
+  font-size: 5.5pt;
+  top: 2px;
+}
 
-  .job-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: .5rem;
-  }
-  .job-title {
-    font-size: 11pt;
-    font-weight: 800;
-    color: var(--dark);
-    line-height: 1.25;
-  }
-  .job-company {
-    font-size: 9.5pt;
-    font-weight: 600;
-    color: var(--teal);
-    margin-top: .15rem;
-  }
-  .job-dates {
-    font-size: 9pt;
-    color: var(--gray);
-    font-weight: 600;
-    white-space: nowrap;
-    background: var(--gray-light);
-    border-radius: 3px;
-    padding: .2rem .6rem;
-    flex-shrink: 0;
-    text-align: center;
-    line-height: 1.4;
-  }
-  .job-desc { font-size: 9.5pt; color: var(--gray); margin-bottom: .55rem; line-height: 1.55; }
+/* ===== MAIN ===== */
+.cv-main {
+  flex: 1;
+  padding: 1rem 1.5rem 1rem 1.1rem;
+  overflow: hidden;
+}
 
-  .bullets { list-style: none; padding: 0; }
-  .bullets li {
-    display: flex;
-    align-items: flex-start;
-    gap: .4rem;
-    font-size: 9.5pt;
-    color: #334155;
-    margin-bottom: .3rem;
-    line-height: 1.5;
-  }
-  .bullets li::before {
-    content: '◆';
-    color: var(--teal);
-    font-size: 7pt;
-    margin-top: 3px;
-    flex-shrink: 0;
-  }
-  .bullets li strong { color: var(--dark); font-weight: 700; }
+.m-section { margin-bottom: .9rem; }
+.m-title {
+  font-size: 7pt;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding-bottom: .2rem;
+  border-bottom: 1.5px solid var(--blue);
+  margin-bottom: .6rem;
+}
 
-  .tender-tag {
-    display: inline-block;
-    background: var(--blue-light);
-    color: var(--blue);
-    font-size: 7.5pt;
-    font-weight: 700;
-    padding: .1rem .45rem;
-    border-radius: 3px;
-    margin-right: .35rem;
-    vertical-align: middle;
-  }
+/* Job */
+.job { margin-bottom: .75rem; }
+.job:last-child { margin-bottom: 0; }
+.job-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem;
+  margin-bottom: .1rem;
+}
+.job-title { font-size: 9pt; font-weight: 800; color: var(--dark); }
+.job-dates { font-size: 7.5pt; color: var(--gray-mid); white-space: nowrap; }
+.job-co { font-size: 8pt; font-weight: 600; color: var(--teal); margin-bottom: .3rem; }
 
-  /* Sub-projects */
-  .projects-title {
-    font-size: 8.5pt;
-    font-weight: 700;
-    color: var(--blue);
-    margin: .6rem 0 .4rem;
-    letter-spacing: .03em;
-  }
-  .project-item {
-    display: flex;
-    align-items: flex-start;
-    gap: .4rem;
-    font-size: 9pt;
-    color: #334155;
-    margin-bottom: .25rem;
-    line-height: 1.5;
-  }
-  .project-item::before {
-    content: '▸';
-    color: #64748b;
-    font-size: 9pt;
-    flex-shrink: 0;
-  }
+.bl { list-style: none; }
+.bl li {
+  font-size: 8.2pt;
+  color: var(--gray);
+  margin-bottom: .22rem;
+  padding-right: .9rem;
+  position: relative;
+  line-height: 1.42;
+}
+.bl li::before {
+  content: '◆';
+  position: absolute;
+  right: 0;
+  color: var(--teal);
+  font-size: 5.5pt;
+  top: 3px;
+}
+.bl li strong { color: var(--dark); font-weight: 700; }
 
-  /* Education */
-  .edu-item { margin-bottom: 1.1rem; }
-  .edu-item:last-child { margin-bottom: 0; }
-  .edu-degree {
-    font-size: 10.5pt;
-    font-weight: 800;
-    color: var(--dark);
-  }
-  .edu-institution {
-    font-size: 9pt;
-    font-weight: 600;
-    color: var(--teal);
-  }
-  .edu-details {
-    font-size: 9pt;
-    color: var(--gray);
-    margin-top: .15rem;
-  }
-  .edu-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #fef3c7, #fde68a);
-    color: #92400e;
-    border: 1px solid #fcd34d;
-    font-size: 7.5pt;
-    font-weight: 700;
-    padding: .1rem .5rem;
-    border-radius: 3px;
-    margin-right: .3rem;
-  }
+/* Education */
+.edu { margin-bottom: .55rem; }
+.edu:last-child { margin-bottom: 0; }
+.edu-deg { font-size: 8.8pt; font-weight: 800; color: var(--dark); }
+.edu-inst { font-size: 7.8pt; font-weight: 600; color: var(--teal); }
+.edu-note { font-size: 7.5pt; color: var(--gray-mid); margin-top: .1rem; }
+.badge-honor {
+  display: inline-block;
+  background: #fef9e7;
+  border: 1px solid #f6c90e;
+  color: #7d6200;
+  font-size: 6.8pt;
+  font-weight: 700;
+  padding: .05rem .35rem;
+  border-radius: 2px;
+  margin-right: .3rem;
+  vertical-align: middle;
+}
 
-  /* ===== PRINT ===== */
-  @media print {
-    .print-bar { display: none !important; }
-    body { font-size: 10pt; }
-    .page {
-      max-width: 100%;
-      margin: 0;
-      box-shadow: none;
-    }
-    .cv-body { page-break-inside: avoid; }
-    .job { page-break-inside: avoid; }
-  }
+/* ===== PRINT ===== */
+@media print {
+  .screen-only { display: none !important; }
+  html, body { width: 210mm; height: 297mm; }
+  .cv { min-height: 297mm; max-height: 297mm; }
+}
 
-  @page {
-    size: A4;
-    margin: 0;
-  }
+@page { size: A4; margin: 0; }
 </style>
 </head>
 <body>
 
-<div class="print-bar">
-  <span>קורות חיים — ברק רוזנפלד | מכרז פומבי 10/2026 | מנהל אגף בכיר טכנולוגיות דיגיטליות ומידע</span>
-  <button class="btn-print" onclick="window.print()">🖨️ הדפסה / שמירה כ-PDF</button>
+<!-- Screen toolbar -->
+<div class="screen-only">
+  <span>ברק רוזנפלד — קורות חיים</span>
+  <button class="btn-pdf" onclick="window.print()">שמור כ-PDF (Ctrl+P → Save as PDF)</button>
 </div>
 
-<div class="page">
+<div class="cv">
 
-  <!-- HEADER -->
-  <div class="cv-header">
-    <div class="header-top">
-      <div>
-        <div class="cv-name">ברק רוזנפלד</div>
-        <div class="cv-title">מנהל בכיר טכנולוגיות מידע | 15+ שנות ניסיון | 8 שנות ניהול רב-תחומי</div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:.5rem;align-items:flex-end">
-        <div class="tender-badge">מכרז פומבי 10/2026 | שירות התעסוקה הישראלי</div>
-        <div class="cv-contact">
-          <a href="mailto:barak2rozenfeld@gmail.com">barak2rozenfeld@gmail.com</a>
-          <a href="tel:0535316043" dir="ltr">053-531-6043</a>
-        </div>
+  <!-- HEAD -->
+  <div class="cv-head">
+    <div class="head-left">
+      <div class="cv-name">ברק רוזנפלד</div>
+      <div class="cv-tagline">
+        מנהל בכיר מערכות מידע וטכנולוגיה · 15+ שנות ניסיון · 8 שנות ניהול רב-תחומי
       </div>
     </div>
-    <div class="header-summary">
-      מנהל בכיר עם 15+ שנות ניסיון בהובלת מערכות מידע ופרויקטים טכנולוגיים מורכבים, ו-8 שנות ניהול צוותים רב-תחומיים (פיתוח, תשתיות, חומרה ובדיקות). ניסיון מוכח בניהול ספקים, כתיבת מפרטים, ניהול תקציבים ויישום AI מעשי בסביבות ייצור. בוגר תואר שני בניהול טכנולוגיה (בהצטיינות) ותואר ראשון בהנדסת חשמל ואלקטרוניקה.
+    <div class="head-right">
+      <div class="contact-item"><a href="mailto:barak2rozenfeld@gmail.com">barak2rozenfeld@gmail.com</a></div>
+      <div class="contact-item"><a href="tel:0535316043">053-531-6043</a></div>
+      <div class="contact-item">ישראל</div>
     </div>
   </div>
+  <div class="cv-head-line"></div>
 
   <!-- BODY -->
   <div class="cv-body">
 
     <!-- SIDEBAR -->
-    <div class="sidebar">
+    <div class="cv-side">
 
-      <!-- Stats -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">נתוני מפתח</div>
-        <div class="stat-row">
-          <div class="stat-num">15+</div>
-          <div class="stat-desc">שנות ניסיון בטכנולוגיה ומערכות מידע</div>
-        </div>
-        <div class="stat-row">
-          <div class="stat-num">8</div>
-          <div class="stat-desc">שנות ניהול צוותים רב-תחומיים</div>
-        </div>
-        <div class="stat-row">
-          <div class="stat-num">MSc</div>
-          <div class="stat-desc">ניהול טכנולוגיה, בהצטיינות — רשימת הדיקן</div>
-        </div>
-      </div>
-
-      <!-- Tender match -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">התאמה לדרישות המכרז</div>
-
-        <div class="checklist-item">
-          <div class="check-icon">✓</div>
-          <div><strong>תואר ראשון</strong> בהנדסת חשמל ואלקטרוניקה</div>
-        </div>
-        <div class="checklist-item">
-          <div class="check-icon">✓</div>
-          <div><span class="check-exceed">15+ שנים</span> ניסיון IS — <em>פי שניים מהדרוש</em></div>
-        </div>
-        <div class="checklist-item">
-          <div class="check-icon">✓</div>
-          <div><span class="check-exceed">8 שנים</span> ניהול צוות רב-תחומי — <em>מעל הדרוש</em></div>
-        </div>
-        <div class="checklist-item">
-          <div class="check-icon">✓</div>
-          <div>ניהול תקציבי ענן, רכש ורישיונות</div>
-        </div>
-        <div class="checklist-item">
-          <div class="check-icon">✓</div>
-          <div>בסיסי נתונים: SQL Server, MySQL, DynamoDB</div>
-        </div>
-        <div class="checklist-item">
-          <div class="check-icon">✓</div>
-          <div>ניהול ספקים, מו"מ ובקרת חוזים</div>
-        </div>
-        <div class="checklist-item">
-          <div class="check-icon">✓</div>
-          <div>כתיבת מפרטים טכניים ו-SRS</div>
-        </div>
-        <div class="checklist-item">
-          <div class="check-icon">✓</div>
-          <div>מערכות IoT מורכבות ומבוזרות</div>
-        </div>
-        <div class="checklist-item">
-          <div class="check-icon">✓</div>
-          <div>הטמעת מערכות (POC → ייצור)</div>
-        </div>
-        <div class="checklist-item">
-          <div class="check-icon">✓</div>
-          <div>ניהול ממשקים חוצי-ארגון (פיתוח, חומרה, QA, תפעול)</div>
-        </div>
-      </div>
-
-      <!-- Technical skills -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">כישורים טכניים</div>
-
-        <div class="skill-category">
-          <div class="skill-cat-name">בסיסי נתונים</div>
+      <div class="s-block">
+        <div class="s-title">כישורים טכניים</div>
+        <div class="skill-group">
+          <div class="skill-group-name">בסיסי נתונים</div>
           <div class="skill-tags">
-            <span class="skill-tag highlight">SQL Server</span>
-            <span class="skill-tag highlight">MySQL</span>
-            <span class="skill-tag">DynamoDB</span>
-            <span class="skill-tag">SSRS</span>
+            <span class="st hi">SQL Server</span>
+            <span class="st hi">MySQL</span>
+            <span class="st">DynamoDB</span>
+            <span class="st">SSRS</span>
           </div>
         </div>
-
-        <div class="skill-category">
-          <div class="skill-cat-name">ענן ותשתיות</div>
+        <div class="skill-group">
+          <div class="skill-group-name">ענן ותשתיות</div>
           <div class="skill-tags">
-            <span class="skill-tag highlight">AWS</span>
-            <span class="skill-tag">Lambda</span>
-            <span class="skill-tag">S3</span>
-            <span class="skill-tag">API Gateway</span>
-            <span class="skill-tag">IoT Core</span>
+            <span class="st hi">AWS</span>
+            <span class="st">Lambda</span>
+            <span class="st">S3</span>
+            <span class="st">API Gateway</span>
+            <span class="st">IoT Core</span>
+            <span class="st">Bedrock (RAG)</span>
           </div>
         </div>
-
-        <div class="skill-category">
-          <div class="skill-cat-name">AI ולמידת מכונה</div>
+        <div class="skill-group">
+          <div class="skill-group-name">AI ולמידת מכונה</div>
           <div class="skill-tags">
-            <span class="skill-tag highlight">GenAI (ChatGPT, Claude)</span>
-            <span class="skill-tag">AWS Bedrock RAG</span>
-            <span class="skill-tag">YOLO / Computer Vision</span>
-            <span class="skill-tag">Deep Learning</span>
+            <span class="st hi">GenAI (ChatGPT, Claude)</span>
+            <span class="st">YOLO / Computer Vision</span>
+            <span class="st">Deep Learning</span>
+            <span class="st">CNN / RNN</span>
           </div>
         </div>
-
-        <div class="skill-category">
-          <div class="skill-cat-name">פיתוח</div>
+        <div class="skill-group">
+          <div class="skill-group-name">שפות תכנות</div>
           <div class="skill-tags">
-            <span class="skill-tag">C#, .NET</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Flutter/Dart</span>
-            <span class="skill-tag">HTML/CSS</span>
-            <span class="skill-tag">Bash</span>
+            <span class="st">C# / .NET / WPF</span>
+            <span class="st">Python</span>
+            <span class="st">JavaScript</span>
+            <span class="st">Flutter/Dart</span>
+            <span class="st">Bash / Linux</span>
+            <span class="st">HTML/CSS</span>
           </div>
         </div>
-
-        <div class="skill-category">
-          <div class="skill-cat-name">ניהול פרויקטים</div>
+        <div class="skill-group">
+          <div class="skill-group-name">ניהול פרויקטים וכלים</div>
           <div class="skill-tags">
-            <span class="skill-tag highlight">JIRA</span>
-            <span class="skill-tag">Confluence</span>
-            <span class="skill-tag">Kanban</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">SharePoint</span>
+            <span class="st hi">JIRA</span>
+            <span class="st">Confluence</span>
+            <span class="st">Git</span>
+            <span class="st">Kanban</span>
+            <span class="st">SharePoint</span>
+            <span class="st">VS Code / Cursor</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-name">פרוטוקולים ומסמכים</div>
+          <div class="skill-tags">
+            <span class="st">GPIB, I2C, RS232/422/485</span>
+            <span class="st">TCP/UDP, MQTT, HTTP</span>
+            <span class="st">SRS, DRs, Test Plans</span>
           </div>
         </div>
       </div>
 
-      <!-- Languages -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">שפות</div>
-        <div class="lang-row">
-          <span class="lang-name">עברית</span>
-          <span class="lang-level">שפת אם</span>
-        </div>
-        <div class="lang-row">
-          <span class="lang-name">אנגלית</span>
-          <span class="lang-level">שוטפת</span>
-        </div>
-        <div class="lang-row">
-          <span class="lang-name">ספרדית</span>
-          <span class="lang-level">בסיסי</span>
-        </div>
+      <div class="s-block">
+        <div class="s-title">שפות</div>
+        <div class="lang-item"><span>עברית</span><span>שפת אם</span></div>
+        <div class="lang-item"><span>אנגלית</span><span>שוטפת</span></div>
+      </div>
+
+      <div class="s-block">
+        <div class="s-title">כישורים ניהוליים</div>
+        <div class="soft-item">מנהיגות והנעת צוותים</div>
+        <div class="soft-item">חשיבה אסטרטגית ותכנון</div>
+        <div class="soft-item">ניהול ספקים ומו"מ</div>
+        <div class="soft-item">ניהול תקציב ורכש</div>
+        <div class="soft-item">תקשורת בין-ארגונית</div>
+        <div class="soft-item">קבלת החלטות מבוססת-נתונים</div>
+        <div class="soft-item">כתיבת מפרטים ו-SRS</div>
       </div>
 
     </div><!-- /sidebar -->
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
+    <!-- MAIN -->
+    <div class="cv-main">
 
       <!-- EXPERIENCE -->
-      <div class="main-section">
-        <div class="section-title">ניסיון מקצועי</div>
+      <div class="m-section">
+        <div class="m-title">ניסיון מקצועי</div>
 
-        <!-- JCI Visonic Senior -->
         <div class="job">
-          <div class="job-header">
-            <div>
-              <div class="job-title">מנהל תוכנה בכיר — מערכות Real-Time ורב-תחומי</div>
-              <div class="job-company">JCI – Visonic (Johnson Controls) | אשדוד</div>
-            </div>
-            <div class="job-dates">2018 – הווה<br><span style="font-size:8pt;font-weight:400">~7 שנים</span></div>
+          <div class="job-row">
+            <div class="job-title">מנהל תוכנה בכיר — מערכות Real-Time ורב-תחומי</div>
+            <div class="job-dates">2018 – הווה</div>
           </div>
-          <ul class="bullets">
-            <li>
-              <span class="tender-tag">ניהול צוות</span>
-              <strong>ניהול צוותים רב-תחומיים גלובליים</strong> — פיתוח תוכנה, חומרה, QA ואינטגרציה; ניהול end-to-end של פרויקטים מורכבים מהדרישה ועד ייצור.
-            </li>
-            <li>
-              <span class="tender-tag">ניהול תקציב</span>
-              <strong>אחריות תקציבית</strong> על משאבי ענן (AWS), רישיונות תוכנה, ציוד ורכש — כולל ניהול ספקים, מו"מ ובקרת ביצוע.
-            </li>
-            <li>
-              <span class="tender-tag">AI מעשי</span>
-              <strong>הובלת אימוץ GenAI</strong> בארגון ההנדסי — שילוב כלי ChatGPT, Claude, AWS Bedrock בתהליכי תיעוד, פיתוח ואוטומציה.
-            </li>
-            <li>
-              <span class="tender-tag">מפרטים</span>
-              <strong>כתיבת מסמכי SRS, תוכניות בדיקה ומפרטים טכניים</strong> לפרויקטים בסביבות מורכבות ומבוזרות.
-            </li>
-            <li>
-              <strong>חניכת מהנדסים</strong> זוטרים ומתמחים; ניהול ציפיות מול בעלי עניין ורמות הנהלה שונות.
-            </li>
-          </ul>
-
-          <div class="projects-title">פרויקטים מרכזיים:</div>
-          <div class="project-item"><strong>כלי ויזואליזציה Radar & AI</strong> — מערכות 2D/3D לניתוח נתוני רדאר ומצלמה בזמן אמת; שילוב YOLO לזיהוי אובייקטים (Python, AWS, WebGL).</div>
-          <div class="project-item"><strong>Platform Emulator ענן (צוות בין-לאומי)</strong> — ניהול צוות 6 חברים לפיתוח סביבת אמולציה; הרחבה מ-POC לפריסה ייצורית מלאה.</div>
-          <div class="project-item"><strong>Field Service Chatbot</strong> — מימוש צ'אטבוט RAG על AWS Bedrock לתמיכה בצוותי שטח, QA ואינטגרציה.</div>
-          <div class="project-item"><strong>IoT Data Tagging System</strong> — ארכיטקטורה ועיצוב API של פלטפורמת אנליטיקה ל-AWS עבור נתוני וידאו, PIR ורדאר.</div>
-          <div class="project-item"><strong>Wi-Fi People Detection POC</strong> — ניהול ותרומה לסיסטם בתהליך פטנט לזיהוי אדם דרך קיר באמצעות Raspberry Pi ו-Wi-Fi.</div>
-        </div>
-
-        <!-- JCI Visonic Integration -->
-        <div class="job">
-          <div class="job-header">
-            <div>
-              <div class="job-title">מהנדס תוכנת אינטגרציה</div>
-              <div class="job-company">JCI – Visonic | אשדוד</div>
-            </div>
-            <div class="job-dates">2014 – 2018<br><span style="font-size:8pt;font-weight:400">~4 שנים</span></div>
-          </div>
-          <ul class="bullets">
-            <li><strong>עיצוב ופיתוח מערכות ניטור, בדיקה וסימולציה</strong> להתקני אזעקה ו-IoT מרמת קונספט ועד ייצור.</li>
-            <li><strong>בניית כלי אנליטיקה בזמן אמת</strong> עם ויזואליזציות GUI לנתוני ביצוע (TX power, RSSI, PER).</li>
-            <li><span class="tender-tag">מערכות מבוזרות</span> <strong>מערכות בדיקה אוטומטיות</strong> לרגרסיה, עומס ובדיקות שימושיות; שילוב ממשקי חומרה (GPIB, I2C, IO).</li>
-            <li><strong>אפליקציית IoT ניידת</strong> cross-platform לניטור טמפרטורה ושליטה בהתקנים (AWS IoT Core, Flutter/Dart).</li>
+          <div class="job-co">JCI – Visonic (Johnson Controls)</div>
+          <ul class="bl">
+            <li>ניהול צוותים רב-תחומיים גלובליים (פיתוח, חומרה, QA, אינטגרציה) לאורך מחזורי חיים מלאים של פרויקטים — מדרישות ועד ייצור.</li>
+            <li>ניהול תקציבי ענן AWS, רישיונות תוכנה ורכש ציוד; ניהול ספקים, מו"מ ובקרת ביצוע חוזים.</li>
+            <li>הובלת אימוץ GenAI בארגון — שילוב ChatGPT, Claude ו-AWS Bedrock RAG בתהליכי תיעוד, פיתוח ותמיכה.</li>
+            <li>כתיבת מסמכי SRS, תוכניות בדיקה ומפרטים טכניים; <strong>שיפור 25% ביעילות ה-QA</strong> בפרויקט Analytics &amp; Testing.</li>
+            <li>פרויקטים בולטים: <strong>Radar & AI Visualization</strong> (Python, AWS, WebGL/Three.js) · <strong>Cloud Panel Emulator</strong> (צוות 6 חברים, POC לייצור) · <strong>IoT Data Tagging System</strong> · <strong>Wi-Fi People Detection</strong> (בתהליך פטנט).</li>
           </ul>
         </div>
 
-        <!-- Intel -->
         <div class="job">
-          <div class="job-header">
-            <div>
-              <div class="job-title">מנהל טכנאים אלקטרוניקה ומוביל אוטומציה</div>
-              <div class="job-company">Intel Israel | קריית גת</div>
-            </div>
-            <div class="job-dates">2010 – 2014<br><span style="font-size:8pt;font-weight:400">~4 שנים</span></div>
+          <div class="job-row">
+            <div class="job-title">מהנדס תוכנת אינטגרציה</div>
+            <div class="job-dates">2014 – 2018</div>
           </div>
-          <ul class="bullets">
-            <li>
-              <span class="tender-tag">ניהול צוות</span>
-              <strong>ניהול 14 טכנאים</strong> בקו ייצור Wafer; אחריות על תקינות תהליכים, סדרי עדיפויות ואיכות.
-            </li>
-            <li><strong>אוטומציה של תהליכי בדיקה</strong> בפס הייצור באמצעות יישומי C# ותסריטי Bash/C Shell.</li>
-            <li><strong>יצירת לוחות דיווח SSRS</strong> וניהול אתר SharePoint המחלקתי — שיפור שיתוף מידע ויעילות.</li>
+          <div class="job-co">JCI – Visonic</div>
+          <ul class="bl">
+            <li>עיצוב ופיתוח מערכות ניטור, בדיקה וסימולציה להתקני אזעקה ו-IoT מ-concept ועד production.</li>
+            <li>פיתוח כלי אנליטיקה בזמן אמת ומערכות בדיקה אוטומטיות (רגרסיה, עומס, שימושיות); שילוב ממשקי חומרה (GPIB, I2C).</li>
+            <li>אפליקציית IoT ניידת cross-platform לניטור ושליטה בהתקנים (AWS IoT Core, Flutter/Dart, MQTT).</li>
           </ul>
         </div>
 
-        <!-- Military -->
         <div class="job">
-          <div class="job-header">
-            <div>
-              <div class="job-title">מפתח יישומים — שירות חובה (חיל האוויר)</div>
-              <div class="job-company">צה"ל — חיל האוויר הישראלי</div>
-            </div>
+          <div class="job-row">
+            <div class="job-title">מנהל טכנאים אלקטרוניקה ומוביל אוטומציה</div>
+            <div class="job-dates">2010 – 2014</div>
+          </div>
+          <div class="job-co">Intel Israel | קריית גת</div>
+          <ul class="bl">
+            <li>ניהול 14 טכנאים בקו ייצור Wafer; אחריות על תהליכים, איכות וסדרי עדיפויות.</li>
+            <li>אוטומציה של תהליכי בדיקה (C#, Bash); בניית לוחות SSRS וניהול SharePoint מחלקתי.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-row">
+            <div class="job-title">מפתח יישומים — שירות חובה</div>
             <div class="job-dates">2006 – 2009</div>
           </div>
-          <ul class="bullets">
-            <li><strong>פיתוח מערכות Desktop מרכזיות</strong> ב-C#; תכנון לוחות HW (VHDL, Xilinx FPGA) ושילוב פרוטוקולים (GPIB, I2C, RS232/422).</li>
-            <li><strong>שיתוף פעולה עם צוותים רב-תחומיים</strong> מחברות תעשייה ביטחונית מובילות (Elbit, IAI, Rafael) לפיתוח מערכות קריטיות.</li>
+          <div class="job-co">חיל האוויר הישראלי</div>
+          <ul class="bl">
+            <li>פיתוח מערכות Desktop קריטיות (C#); תכנון לוחות HW (VHDL, FPGA); שיתוף פעולה עם Elbit, IAI, Rafael.</li>
           </ul>
         </div>
 
       </div><!-- /experience -->
 
       <!-- EDUCATION -->
-      <div class="main-section">
-        <div class="section-title">השכלה</div>
+      <div class="m-section" style="margin-bottom:0">
+        <div class="m-title">השכלה</div>
 
-        <div class="edu-item">
-          <div class="edu-degree">
-            <span class="edu-badge">⭐ בהצטיינות</span>
+        <div class="edu">
+          <div class="edu-deg">
+            <span class="badge-honor">★ בהצטיינות</span>
             תואר שני (M.Sc.) — ניהול טכנולוגיה והנדסת מערכות
           </div>
-          <div class="edu-institution">מכון טכנולוגי לב (HIT) | 2021 – 2023</div>
-          <div class="edu-details">
-            רשימת הדיקן · סיים בהצטיינות
-            <span style="margin-right:.75rem; color: #0d9488; font-weight:600">| מסייע לפרופסור במחלקה לניהול טכנולוגיה (2024 – הווה)</span>
-          </div>
+          <div class="edu-inst">מכון טכנולוגי לב (HIT) | 2021 – 2023</div>
+          <div class="edu-note">רשימת הדיקן · מסייע לפרופסור במחלקה לניהול טכנולוגיה (2024 – הווה)</div>
         </div>
 
-        <div class="edu-item">
-          <div class="edu-degree">תואר ראשון (B.Sc.) — הנדסת חשמל ואלקטרוניקה</div>
-          <div class="edu-institution">מכון טכנולוגי לב (HIT) | 2010 – 2014</div>
+        <div class="edu">
+          <div class="edu-deg">תואר ראשון (B.Sc.) — הנדסת חשמל ואלקטרוניקה</div>
+          <div class="edu-inst">מכון טכנולוגי לב (HIT) | 2010 – 2014</div>
         </div>
 
-        <div class="edu-item">
-          <div class="edu-degree">הסמכת מומחה פיתוח AI</div>
-          <div class="edu-institution">מכון טכנולוגי לב (HIT) | 2026 – הווה</div>
-          <div class="edu-details">Machine Learning, Deep Learning, מודלים גנרטיביים, Data Pipelines, Deployment Workflows</div>
+        <div class="edu">
+          <div class="edu-deg">הסמכת מומחה פיתוח AI — Machine Learning, Deep Learning, Generative AI</div>
+          <div class="edu-inst">מכון טכנולוגי לב (HIT) | 2026 – הווה</div>
         </div>
+
       </div><!-- /education -->
 
-      <!-- SOFT SKILLS / MANAGEMENT APPROACH -->
-      <div class="main-section" style="margin-bottom:0">
-        <div class="section-title">גישת ניהול ומיומנויות ניהוליות</div>
-        <ul class="bullets">
-          <li><strong>חיבור טכנולוגיה לצורך עסקי</strong> — כל החלטה טכנולוגית מתחילה בהגדרת הבעיה והמשתמש; טכנולוגיה היא אמצעי, לא מטרה.</li>
-          <li><strong>גישה הדרגתית</strong> — פיילוט מבוקר עם מדדי הצלחה מוגדרים מראש לפני פריסה מלאה; הפחתת סיכון שיטתית.</li>
-          <li><strong>ניהול מבוסס-נתונים</strong> — בניית Dashboard לכל פרויקט, מדידה מתמשכת ותיקון מסלול בזמן אמת.</li>
-          <li><strong>ניהול בשלושה אופקים</strong> — יציבות תפעולית, שיפור מתמשך וחדשנות — בו-זמנית, כל שבוע.</li>
-          <li><strong>ניהול ספקים ומו"מ</strong> — ניסיון בניהול חוזים, הגדרת SLA, בחינת הצעות ובקרת ביצוע ספקים חיצוניים.</li>
-        </ul>
-      </div>
+    </div><!-- /main -->
 
-    </div><!-- /main-content -->
-  </div><!-- /cv-body -->
+  </div><!-- /body -->
 
-</div><!-- /page -->
+</div><!-- /cv -->
 
 </body>
 </html>
